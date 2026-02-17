@@ -1,4 +1,4 @@
-title: Henrik Becker Consulting AB
+title: Becker Consulting
 tagline: Building the right software right
 repository: becker-consulting/becker-consulting.github.io
 production_url: https://becker-consulting.github.io
@@ -7,23 +7,26 @@ author:
   github: handiman
 permalink: pretty
 sass:
- sass_dir: _sass
- style: compressed
+  sass_dir: _sass
+  style: compressed
+plugins:
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-titles-from-headings
 
-exclude: [ 
- "node_modules",
- "src",
- "package*.json",
- "tsconfig.json",
- "webpack.config.js", 
- "Gemfile", 
- "Gemfile.lock", 
- "README.md", 
- "*.orig"]
+exclude: 
+  - node_modules
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - "*.orig"
 
 defaults:
- - scope: 
-    path: ""
-   values: 
-    layout: default
+  - scope: 
+     path: ""
+    values: 
+     layout: default
+     lang: en-AU
+     title: Becker Consulting
+     image: https://www.henrikbecker.net/assets/img/landscape-800x534.jpg
     

@@ -1,48 +1,36 @@
 ---
+layout: null
 ---
 <!DOCTYPE html>
-<html lang="en-AU">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="{{ page.lang }}">
 
 <head>
-  {% assign timestamp = site.time | date: '%s' %}
   {% if page.title %}{% assign title = page.title %}{% else %}{% assign title = site.title | append: ' - ' | append: site.tagline %}{% endif %}
-  {% if page.description %}{% assign description = page.description %}{% else %}{% assign description = site.data.person.description %}{% endif %}
   {% if page.redirect %}<meta http-equiv="refresh" content="0;url={{ page.redirect }}" />{% endif %}
   {% if page.robots %}<meta name="robots" content="{{ page.robots }}" />{% endif %}
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="author" content="{{ site.author.name }}" />
-  <meta name="copyright" content="{{ site.title }}" />
+  {% seo title=false %}
   <title>{{ title }}</title>
   <script type="application/ld+json">
   {
     "@context": "http://schema.org",
     "@type": "Organization",
     "url": {{ site.production_url | jsonify }},
-    "name": {{ site.title | jsonify }}
+    "name": "Henrik Becker Consulting AB",
+    "alternateName": "Becker Consulting" 
   }
   </script>
-  {% if description %}
-  <meta name="description" content="{{ description }}" />
-  <meta name="twitter.description" content="{{ description }}" />
-  <meta property="og:description" content="{{ description }}" />
-  {% endif %}
-  <meta property="og:title" content="{{ title }}" />
-  <meta property="og:locale" content="en_AU" />
-  <meta property="og:site_name" content="{{ site.title }}" />
-  <meta property="og:url" content="{{ site.production_url }}{{ page.url }}" />
-  <script src="https://kit.fontawesome.com/ceeaf2ba40.js" crossorigin="anonymous"></script>
+  <link rel="icon" href="{{ '/favicon.ico' | relative_url }}" sizes="any" />
+  <link rel="icon" type="image/png" href="{{ '/assets/img/favicon512.png' | relative_url }}" sizes="512x512">
   <link rel="canonical" href="{{ page.url | absolute_url }}" />
   <link rel="home" href="{{ '/' | absolute_url }}" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap" />
-  <link rel="stylesheet" href="{{ '/css/normalize.css' | absolute_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/fontawesome/css/all.min.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/normalize.css' | relative_url }}" />
+  <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}" />
   <style>
-    * {
-      font-family: 'Open Sans', Arial, Helvetica, sans-serif;
-    }
-    html, body {
-      font-size: 16px;
-    }
+    
 
   </style>
 </head>
