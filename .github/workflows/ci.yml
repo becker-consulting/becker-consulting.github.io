@@ -11,14 +11,14 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Install Ruby
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '2.6'
+          ruby-version: 3.3.4
 
       - name: Install Gems
         run: |
+          gem install bundler -v 2.5
           bundler install
-          gem install bundler
 
       - name: Install Typst
         if: false
