@@ -12,6 +12,7 @@ sass:
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-minifier
 
 exclude: 
   - typst-x86_64-unknown-linux-musl
