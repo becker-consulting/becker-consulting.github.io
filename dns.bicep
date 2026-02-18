@@ -1,7 +1,5 @@
-param zoneName string = 'becker-consulting.se'
-
 resource dnsZone 'Microsoft.Network/dnsZones@2018-05-01' = {
-  name: zoneName
+  name: 'becker-consulting.se'
   location: 'global'
 }
  
