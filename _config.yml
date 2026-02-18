@@ -27,6 +27,5 @@ defaults:
     values: 
      layout: default
      lang: en-AU
-     title: Becker Consulting
      image: https://www.henrikbecker.net/assets/img/landscape-800x534.jpg
     
