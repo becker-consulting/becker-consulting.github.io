@@ -4,4 +4,8 @@ node_modules/
 .jekyll-cache/
 .jekyll-metadata
 *.orig
+*.tar
+*.tar.*
+typst-x86_64-unknown-linux-musl
+
 
