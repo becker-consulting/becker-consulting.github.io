@@ -2,6 +2,8 @@ name: Build and Publish
 on:
   push:
     branches: [ master ]
+env:
+  JEKYLL_ENV: production    
 jobs:
   publish:
     runs-on: ubuntu-latest
