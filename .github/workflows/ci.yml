@@ -28,6 +28,16 @@ jobs:
           tar -xf typst.tar.xz
           sudo mv typst-x86_64-unknown-linux-musl/typst /usr/local/bin/typst
           sudo chmod +x /usr/local/bin/typst
+      
+      - name: Install ImageMagick
+        run: |
+          wget https://www.imagemagick.org/download/ImageMagick.tar.gz
+          tar xvzf ImageMagick.tar.gz
+          cd ImageMagick-*
+          ./configure
+          make
+          sudo make install
+          sudo ldconfig /usr/local/lib
 
       - name: Build gh-pages
         run: bundle exec jekyll build
