@@ -12,7 +12,6 @@ sass:
 plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
-  - jekyll-titles-from-headings
 
 exclude: 
   - node_modules
@@ -28,4 +27,3 @@ defaults:
      layout: default
      lang: en-AU
      image: https://www.henrikbecker.net/assets/img/landscape-800x534.jpg
-    
