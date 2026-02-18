@@ -1,4 +1,5 @@
 Jekyll::Hooks.register :site, :pre_render do |site|
+    if not Gem.win_platform? ENV['JEKYLL_ENV'] = 'production'
     site.data['favicon_sizes'] = [512,192,180,64,32,16]
 end
 
