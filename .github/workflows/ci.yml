@@ -33,8 +33,17 @@ jobs:
 
       - name: Build gh-pages
         run: bundle exec jekyll build
-      
+
+      - name: Publish to Cloudflare Pages
+        uses: cloudflare/pages-action@v1
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId:  ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          projectName: henrikbecker
+          directory: _site        
+
       - name: Publish gh-pages
+        if: false
         uses: s0/git-publish-subdir-action@develop
         env:
           REPO: self
