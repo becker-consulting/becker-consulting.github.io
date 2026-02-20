@@ -6,6 +6,34 @@ node_modules/
 *.orig
 *.tar
 *.tar.*
+*.pdf
+*.docx
 typst-x86_64-unknown-linux-musl
+.wrangler/
+.terraform/
+terraform.*
+
+.DS_Store
+.sass-cache
+.jekyll-metadata
+.rbenv-version
+.rvmrc
+.vs
+.vscode
+
+logs
+build
+node_modules
+_site/*
+_theme_packages/*
+_trash/*
+_backup/*
+_ignore
+_drafts
+
+Thumbs.db
+desktop.ini
+
+!.gitkeep
 
 

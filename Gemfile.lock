@@ -294,7 +294,6 @@ DEPENDENCIES
   jekyll-minifier
   jekyll-seo-tag
   jekyll-sitemap
-  jekyll-titles-from-headings
   wdm (>= 0.1.0)
 
 BUNDLED WITH
