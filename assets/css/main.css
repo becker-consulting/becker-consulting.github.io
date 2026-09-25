@@ -234,6 +234,7 @@ a:hover { color: var(--ink); }
 .hero__intro { font-size: 20px; max-width: 520px; }
 .hero__actions { display: flex; gap: 24px; align-items: center; flex-wrap: wrap; padding-top: 8px; }
 .hero__avatar { display: none; }
+.hero__heading { display: flex; flex-direction: column; gap: 28px; }
 .hero__photo { height: 560px; border-radius: var(--radius); overflow: hidden; background: var(--surface); }
 .hero__photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
 
@@ -242,13 +243,14 @@ a:hover { color: var(--ink); }
   .hero__text { gap: 22px; }
   .hero__intro { font-size: 17px; }
   .hero__actions .button { flex: 1 1 100%; }
-  /* Small square portrait next to the company name, as on the CV page */
+  /* Small square portrait beside the company name and slogan, as on the CV page */
   .hero__photo { display: none; }
-  .hero__id { display: flex; align-items: center; gap: 20px; }
+  .hero__id { display: flex; align-items: center; gap: 18px; }
   .hero__avatar { display: block; width: 96px; height: 96px; flex-shrink: 0; border-radius: 14px; overflow: hidden; background: var(--surface); }
   .hero__avatar img { width: 100%; height: 100%; object-fit: cover; }
-  .hero__id .label { display: flex; flex-direction: column; gap: 4px; line-height: 1.5; }
-  .hero__sep { display: none; }
+  .hero__heading { gap: 8px; min-width: 0; }
+  .hero__heading .label { font-size: 11px; line-height: 1.5; }
+  .hero h1 { font-size: clamp(24px, 7.2vw, 40px); line-height: 1.05; letter-spacing: -0.03em; }
 }
 
 /* ---- Home: services ---------------------------------------------------- */

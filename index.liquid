@@ -12,9 +12,11 @@ layout: base.liquid
             <img src="/assets/img/henrik-becker-square.jpg" width="400" height="400" alt="" loading="lazy">
           </picture>
         </div>
-        <p class="label"><span>{{ site.company | replace: " AB", "&nbsp;AB" }}</span><span class="hero__sep"> · </span><span>Lidingö</span></p>
+        <div class="hero__heading">
+          <p class="label">{{ site.company | replace: " AB", "&nbsp;AB" }}&nbsp;· Lidingö</p>
+          <h1>{{ site.tagline }}.</h1>
+        </div>
       </div>
-      <h1>{{ site.tagline }}.</h1>
       <p class="hero__intro">Senior .NET consultant and solutions architect with more than twenty years of C#. I design and build the backend that the rest of your product stands on.</p>
       <div class="hero__actions">
         <a class="button" href="#contact" data-email="{{ site.email.user }}|{{ site.email.domain }}">Get in touch {% include "icon.liquid", name: "arrow" %}</a>
