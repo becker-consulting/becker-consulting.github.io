@@ -1,5 +1,6 @@
 _site/
 node_modules/
+.claude/
 .sass-cache/
 .jekyll-cache/
 .jekyll-metadata
