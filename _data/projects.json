@@ -17,7 +17,7 @@
     "tech": [
       "Cloudflare Workers",
       "D1",
-      "S2",
+      "R2",
       "Durable Objects",
       "Azure Service Bus",
       "Typst"
