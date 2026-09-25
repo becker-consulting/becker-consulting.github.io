@@ -1,0 +1,86 @@
+---
+layout: base.liquid
+---
+{% assign posts = collections.posts | reverse %}
+<div class="wrap">
+  <section class="hero">
+    <div class="hero__text">
+      <p class="label">{{ site.company }} · Lidingö</p>
+      <h1>{{ site.tagline }}.</h1>
+      <p class="hero__intro">Senior .NET consultant and solutions architect with more than twenty years of C#. I design and build the backend that the rest of your product stands on.</p>
+      <div class="hero__actions">
+        <a class="button" href="#contact" data-email="{{ site.email.user }}|{{ site.email.domain }}">Get in touch {% include "icon.liquid", name: "arrow" %}</a>
+        <a class="link-underline" href="#services">What I work on</a>
+      </div>
+    </div>
+    <div class="hero__photo">
+      <picture>
+        <source type="image/webp" srcset="/assets/img/henrik-becker-800.webp 800w, /assets/img/henrik-becker-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 640px">
+        <img src="/assets/img/henrik-becker-1200.jpg" srcset="/assets/img/henrik-becker-800.jpg 800w, /assets/img/henrik-becker-1200.jpg 1200w" sizes="(max-width: 900px) 100vw, 640px" width="1200" height="1125" alt="Henrik Becker" fetchpriority="high">
+      </picture>
+    </div>
+  </section>
+
+  <section class="services" id="services" aria-label="Services">
+    <div class="service">
+      <span class="service__number">01</span>
+      <h3>Backend &amp; .NET</h3>
+      <p>APIs, services and integrations in C# — built to be read, tested and changed.</p>
+    </div>
+    <div class="service">
+      <span class="service__number">02</span>
+      <h3>Solutions architecture</h3>
+      <p>Shaping systems so the next feature is easier than the last one.</p>
+    </div>
+    <div class="service">
+      <span class="service__number">03</span>
+      <h3>Applications on Azure</h3>
+      <p>Cloud-hosted .NET applications, from first deploy to steady state.</p>
+    </div>
+  </section>
+
+  <section class="section" id="projects" aria-labelledby="projects-title">
+    <div class="section__head">
+      <div>
+        <p class="label">Side projects</p>
+        <h2 id="projects-title">Things I build off the clock.</h2>
+      </div>
+      <p>Small, real products — each one an excuse to try a stack properly and ship it.</p>
+    </div>
+    <div class="projects">
+      {% for project in projects %}
+      <a class="project" href="{{ project.url }}">
+        <div class="project__top">
+          <span class="project__name">{{ project.name }}</span>
+          {% include "icon.liquid", name: "external" %}
+        </div>
+        <div class="project__domain">{{ project.domain }}{% if project.badge %}<span class="project__badge">{{ project.badge }}</span>{% endif %}</div>
+        <p class="project__tagline">{{ project.tagline }}</p>
+        <p class="project__description">{{ project.description }}</p>
+        <ul class="chips" aria-label="Built with">
+          {% for t in project.tech %}<li>{{ t }}</li>{% endfor %}
+        </ul>
+      </a>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section class="band" id="blog" aria-labelledby="blog-title">
+    <div>
+      <p class="label">Blog</p>
+      {% if posts.size > 0 %}
+      {% assign latest = posts | first %}
+      <h2 id="blog-title">{{ latest.data.title }}</h2>
+      <p>{{ latest.data.description | default: "Notes on .NET, architecture and the side projects above." }}</p>
+      {% else %}
+      <h2 id="blog-title">Writing is on its way.</h2>
+      <p>Notes on .NET, architecture and the side projects above — including the parts that went sideways.</p>
+      {% endif %}
+    </div>
+    {% if posts.size > 0 %}
+    <a class="band__action" href="{{ latest.url }}">Read the latest {% include "icon.liquid", name: "arrow" %}</a>
+    {% else %}
+    <span class="band__action" aria-disabled="true">Coming soon</span>
+    {% endif %}
+  </section>
+</div>

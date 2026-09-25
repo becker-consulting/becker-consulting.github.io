@@ -1,0 +1,23 @@
+---
+layout: page.liquid
+title: Blog
+description: Notes on .NET, architecture and side projects from Henrik Becker.
+permalink: /blog/
+---
+{% assign posts = collections.posts | reverse %}
+{% if posts.size > 0 %}
+<ul class="post-list">
+  {% for post in posts %}
+  <li>
+    <time datetime="{{ post.date | isoDate }}">{{ post.date | readableDate }}</time>
+    <div>
+      <a href="{{ post.url }}">{{ post.data.title }}</a>
+      {% if post.data.description %}<p>{{ post.data.description }}</p>{% endif %}
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p>Writing is on its way. Notes on .NET, architecture and the side projects — including the parts that went sideways.</p>
+<p>Until then, the <a href="/#projects">side projects</a> are the best place to see what I've been up to.</p>
+{% endif %}

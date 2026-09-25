@@ -1,0 +1,86 @@
+{
+  "name": "Henrik Becker",
+  "title": "Senior .NET developer & solutions architect",
+  "location": "Lidingö",
+  "summary": "Senior fullstack .NET developer and solution architect with a backend heart. I deliver quality software through agile practices, test-driven development, SOLID design and a strong DevOps mindset.",
+  "downloads": {
+    "pdf": "https://www.henrikbecker.net/assets/henrik-becker.pdf",
+    "pdf_sv": "https://www.henrikbecker.net/sv/assets/henrik-becker.pdf",
+    "markdown": "https://www.henrikbecker.net/assets/henrik-becker.markdown",
+    "text": "https://www.henrikbecker.net/assets/henrik-becker.txt"
+  },
+  "experience": [
+    {
+      "years": "2021 — 2025",
+      "name": "Betsson",
+      "role": "Consultant, then permanent from Dec 2023",
+      "summary": "Event-sourced gamification services — Tournaments, Loyalty, Levels — with real-time Kafka processing and Blazor back-office tools. Nearly 1000% higher throughput in Tournaments after Kafka optimisation.",
+      "tech": ".NET 5–9 · Kafka · Orleans · PostgreSQL · Event sourcing"
+    },
+    {
+      "years": "2021",
+      "name": "Adlibris",
+      "role": "Storefront team",
+      "summary": "OpenID/OAuth service with Identity Server 4, and an Account Management API in ASP.NET Core on Azure.",
+      "tech": "ASP.NET Core · Identity Server · Azure App Service · React"
+    },
+    {
+      "years": "2018, 2020 — 21",
+      "name": "Norconsult Astando",
+      "role": "Two assignments",
+      "summary": "Automated deployment with Octopus Deploy — from about 45 minutes to about 5 per instance — then fullstack work modernising legacy systems.",
+      "tech": "Octopus Deploy · TeamCity · ASP.NET Core · TypeScript"
+    },
+    {
+      "years": "2019 — 2020",
+      "name": "Open Payments",
+      "role": "PSD2 platform",
+      "summary": "Automated customer onboarding: a React SPA and .NET Core backend integrating Dynamics CRM and Azure resources.",
+      "tech": ".NET Core · React · Azure API Management · Azure DevOps"
+    },
+    {
+      "years": "2019",
+      "name": "Insplanet",
+      "role": "Senior developer",
+      "summary": "Zero-downtime deployment and a simpler CI process on Azure DevOps.",
+      "tech": "Azure DevOps · Octopus Deploy · .NET Core"
+    },
+    {
+      "years": "2017 — 2018",
+      "name": "Svea Ekonomi",
+      "role": "Svea Checkout",
+      "summary": "Backend for a payment solution rolled out in Sweden, Norway and Finland. Tests rewritten as executable specifications.",
+      "tech": "ASP.NET Web API · CQRS · TDD · Specification by Example"
+    },
+    {
+      "years": "2014 — 2017",
+      "name": "Film2Home / MagineTV",
+      "role": "Film2Home & Plejmo",
+      "summary": "Video on demand. Moved from n-tier to an Azure Service Bus architecture, designed the Plejmo REST API and cut deploys from an hour to minutes.",
+      "tech": "Azure Service Bus · ASP.NET MVC · CQRS · Octopus Deploy"
+    }
+  ],
+  "earlier": {
+    "years": "1998 — 2014",
+    "text": "Wasa Kredit, Länsförsäkringar, Cale Access, CashGuard, Hitta.se, Compaq/HP and more"
+  },
+  "core": [
+    "Backend development — .NET, C#, ASP.NET Core",
+    "System integration — REST, queues, WCF",
+    "Cloud-native — Azure, serverless, containers",
+    "Automation and CI/CD",
+    "Clean code and SOLID"
+  ],
+  "certifications": [
+    { "name": "Azure Developer Associate", "issuer": "Microsoft", "year": "2021" },
+    { "name": "MCSA: Web Applications", "issuer": "Microsoft", "year": "2016" }
+  ],
+  "languages": [
+    "Swedish — native",
+    "English — fluent (IELTS 8.5)"
+  ],
+  "recommendation": {
+    "quote": "Henrik is, without a doubt, one of the best developers I have worked with during my years in the IT and Internet business. He is fast, he understands customer needs …",
+    "by": "Jannice Dybedahl, Hewlett Packard Sweden AB"
+  }
+}
