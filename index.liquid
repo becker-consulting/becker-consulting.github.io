@@ -5,7 +5,15 @@ layout: base.liquid
 <div class="wrap">
   <section class="hero">
     <div class="hero__text">
-      <p class="label">{{ site.company }} · Lidingö</p>
+      <div class="hero__id">
+        <div class="hero__avatar">
+          <picture>
+            <source type="image/webp" srcset="/assets/img/henrik-becker-square.webp">
+            <img src="/assets/img/henrik-becker-square.jpg" width="400" height="400" alt="" loading="lazy">
+          </picture>
+        </div>
+        <p class="label"><span>{{ site.company | replace: " AB", "&nbsp;AB" }}</span><span class="hero__sep"> · </span><span>Lidingö</span></p>
+      </div>
       <h1>{{ site.tagline }}.</h1>
       <p class="hero__intro">Senior .NET consultant and solutions architect with more than twenty years of C#. I design and build the backend that the rest of your product stands on.</p>
       <div class="hero__actions">
@@ -15,6 +23,8 @@ layout: base.liquid
     </div>
     <div class="hero__photo">
       <picture>
+        {%- comment -%} Hidden on mobile; point it at the avatar file so phones don't download the big photo. {%- endcomment %}
+        <source media="(max-width: 900px)" type="image/webp" srcset="/assets/img/henrik-becker-square.webp">
         <source type="image/webp" srcset="/assets/img/henrik-becker-800.webp 800w, /assets/img/henrik-becker-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 640px">
         <img src="/assets/img/henrik-becker-1200.jpg" srcset="/assets/img/henrik-becker-800.jpg 800w, /assets/img/henrik-becker-1200.jpg 1200w" sizes="(max-width: 900px) 100vw, 640px" width="1200" height="1125" alt="Henrik Becker" fetchpriority="high">
       </picture>
