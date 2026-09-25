@@ -1,0 +1,5 @@
+{%- comment -%}
+  The address is not written out in the HTML. site.js assembles it from
+  the data attributes, which stops most address-harvesting bots.
+{%- endcomment -%}
+<a href="#contact" data-email="{{ site.email.user }}|{{ site.email.domain }}" data-email-text>{{ site.email.user }} [at] {{ site.email.domain }}</a>

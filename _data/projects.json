@@ -1,0 +1,37 @@
+[
+  {
+    "name": "Dopp",
+    "url": "https://dopp.becker-consulting.se",
+    "domain": "dopp.becker-consulting.se",
+    "tagline": "Water temperatures for open-water swimmers.",
+    "description": "Real readings logged by swimmers at their swim spots — not weather forecasts. Log a dip, see the season, find spots nearby.",
+    "tech": ["Flutter", "Dart", "Cloudflare Workers", "D1"],
+    "since": "2026"
+  },
+  {
+    "name": "Semantic CV",
+    "url": "https://semantic.cv",
+    "domain": "semantic.cv",
+    "tagline": "Your CV as schema.org JSON-LD.",
+    "description": "A structured-data alternative to JSON Resume. One source file, published as a web page, an ATS-friendly PDF and a designed PDF.",
+    "tech": [
+      "Cloudflare Workers",
+      "D1",
+      "R2",
+      "Durable Objects",
+      "Azure Service Bus",
+      "Typst"
+    ],
+    "since": "2026 —"
+  },
+  {
+    "name": "UIaaS",
+    "url": "https://uiaas.becker-consulting.se/",
+    "domain": "uiaas.becker-consulting.se",
+    "tagline": "Enterprise-grade nonsense, delivered instantly.",
+    "description": "Useless Information as a Service: a versioned, Swagger-documented API for facts nobody asked for.",
+    "tech": ["TypeScript", "Cloudflare Workers", "D1"],
+    "badge": "usefulness: 0",
+    "since": "2026"
+  }
+]

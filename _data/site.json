@@ -1,0 +1,21 @@
+{
+  "title": "Becker Consulting",
+  "company": "Henrik Becker Consulting AB",
+  "alternateName": "Becker Solutions",
+  "tagline": "Building the right software right",
+  "description": "Senior .NET consultant and solutions architect in Lidingö, Stockholm. Backend development, system integration and architecture in C# and .NET.",
+  "url": "https://www.becker-consulting.se",
+  "lang": "en-AU",
+  "locale": "en_AU",
+  "founded": "2017",
+  "location": "Lidingö, Stockholm",
+  "registeredOffice": "Lidingö, Sweden",
+  "orgNumber": "559120-2147",
+  "vatNumber": "SE559120214701",
+  "email": { "user": "henrik", "domain": "becker-consulting.se" },
+  "github": "https://github.com/handiman",
+  "linkedin": "https://www.linkedin.com/in/prettygoodprogrammer",
+  "adsense": "ca-pub-2437652606309475",
+  "image": "/assets/img/og-image.jpg",
+  "author": "Henrik Becker"
+}

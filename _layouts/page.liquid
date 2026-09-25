@@ -1,0 +1,27 @@
+---
+layout: base.liquid
+---
+{% assign is_post = false %}{% if tags contains "posts" %}{% assign is_post = true %}{% endif %}
+<div class="wrap article-layout">
+  <article class="article">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span aria-hidden="true">/</span>
+      {% if is_post %}<a href="/blog/">Blog</a><span aria-hidden="true">/</span>{% endif %}
+      <span aria-current="page">{{ breadcrumb | default: title }}</span>
+    </nav>
+    <h1>{{ title }}</h1>
+    {% if is_post %}<p class="meta"><time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time></p>{% endif %}
+    {% if lead %}<p class="lead">{{ lead }}</p>{% endif %}
+    <div class="prose">
+      {{ content }}
+    </div>
+  </article>
+  {% assign toc = content | toc %}
+  {% if toc.size > 1 %}
+  <aside class="toc" aria-label="On this page">
+    <p class="label">On this page</p>
+    {% for item in toc %}<a href="#{{ item.id }}">{{ item.text }}</a>
+    {% endfor %}
+  </aside>
+  {% endif %}
+</div>
