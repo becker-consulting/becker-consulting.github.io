@@ -1,6 +1,3 @@
-import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync } from "node:fs";
-import path from "node:path";
 import markdownItAnchor from "markdown-it-anchor";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 
@@ -17,6 +14,8 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("assets");
   eleventyConfig.addPassthroughCopy("CNAME");
   eleventyConfig.addPassthroughCopy("ads.txt");
+  eleventyConfig.addPassthroughCopy("favicon.ico");
+  eleventyConfig.addPassthroughCopy("apple-touch-icon.png");
 
   eleventyConfig.ignores.add("README.md");
   eleventyConfig.ignores.add("CLAUDE.md");
@@ -37,30 +36,6 @@ export default function (eleventyConfig) {
   eleventyConfig.addFilter("readableDate", (date) =>
     new Date(date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })
   );
-
-  // Favicons from assets/img/favicon.png, as the old Jekyll hook did.
-  // Needs ImageMagick (magick or convert); skipped with a warning if missing.
-  eleventyConfig.on("eleventy.after", ({ dir }) => {
-    const source = path.join("assets", "img", "favicon.png");
-    const out = dir.output;
-    const tool = ["magick", "convert"].find((cmd) => {
-      try {
-        execFileSync(cmd, ["-version"], { stdio: "ignore" });
-        return true;
-      } catch {
-        return false;
-      }
-    });
-    if (!tool || !existsSync(source)) {
-      console.warn("[favicons] ImageMagick not found; skipping favicon generation.");
-      return;
-    }
-    mkdirSync(path.join(out, "assets", "img"), { recursive: true });
-    execFileSync(tool, [source, "-strip", "-define", "icon:auto-resize=64,48,32,16", path.join(out, "favicon.ico")]);
-    for (const size of FAVICON_SIZES) {
-      execFileSync(tool, [source, "-strip", "-resize", `${size}x${size}`, path.join(out, "assets", "img", `favicon${size}x${size}.png`)]);
-    }
-  });
 
   return {
     dir: {

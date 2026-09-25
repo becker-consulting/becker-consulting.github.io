@@ -10,6 +10,8 @@ npm run build    # production build into _site/
 
 Pushes to `master` are built by GitHub Actions and published to the `gh-pages` branch.
 
+Favicons (`favicon.ico`, `apple-touch-icon.png` and `assets/img/favicon*.png`) are committed files, drawn from the "b" logo tile.
+
 ## Where things live
 
 | Path | What |
