@@ -9,7 +9,7 @@
     - Dart
     - Cloudflare Workers
     - D1
-  since: '2026'
+  since: 2026
 - name: Semantic CV
   url: https://semantic.cv
   domain: semantic.cv
@@ -22,7 +22,7 @@
     - Durable Objects
     - Azure Service Bus
     - Typst
-  since: 2026 —
+  since: 2026
 - name: UIaaS
   url: https://uiaas.becker-consulting.se/
   domain: uiaas.becker-consulting.se
@@ -33,4 +33,4 @@
     - Cloudflare Workers
     - D1
   badge: 'usefulness: 0'
-  since: '2026'
+  since: 2026
