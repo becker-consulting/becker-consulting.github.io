@@ -1,4 +1,5 @@
 import * as yaml from "js-yaml";
+import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
 import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 
@@ -37,6 +38,10 @@ export default function (eleventyConfig) {
       ([, id, text]) => ({ id, text: text.replace(/<[^>]+>/g, "").trim() })
     )
   );
+
+  // Renders Markdown from front matter, e.g. {{ empty | markdown }}.
+  const md = markdownIt({ html: true, typographer: false });
+  eleventyConfig.addFilter("markdown", (text = "") => md.render(String(text)));
 
   eleventyConfig.addFilter("isoDate", (date) => new Date(date).toISOString().slice(0, 10));
   eleventyConfig.addFilter("readableDate", (date) =>

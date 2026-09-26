@@ -1,5 +1,38 @@
 ---
 layout: base.liquid
+
+hero:
+  label: Henrik Becker Consulting AB · Lidingö
+  intro: Senior .NET consultant and solutions architect with more than twenty years of experience. I design and build the backend that the rest of your product stands on.
+  cta: Get in touch
+  secondary: What I work on
+  photo_alt: Henrik Becker
+
+services:
+  heading: Services   # read by screen readers only
+  items:
+    - title: Backend & .NET
+      text: APIs, services and integrations in C# — built to be readable, testable and maintainable.
+    - title: Solutions architecture
+      text: Shaping systems so the next feature is easier than the last one.
+    - title: Applications on Azure
+      text: Cloud-hosted .NET applications, from first deploy to steady state.
+
+side_projects:
+  label: Side projects
+  heading: Things I build off the clock.
+  intro: Small, real products — each one an excuse to try a stack properly and ship it.
+  tech_label: Built with
+
+blog_band:
+  label: Blog
+  # Shown until the first post exists
+  empty_heading: Writing is on its way.
+  empty_text: Notes on .NET, architecture and the side projects above — including the parts that went sideways.
+  empty_action: Coming soon
+  # Shown once there are posts (the heading is the latest post's title)
+  fallback_text: Notes on .NET, architecture and the side projects above.
+  latest_action: Read the latest
 ---
 {% assign posts = collections.posts | reverse %}
 <div class="wrap">
@@ -13,14 +46,14 @@ layout: base.liquid
           </picture>
         </div>
         <div class="hero__heading">
-          <p class="label">{{ site.company | replace: " AB", "&nbsp;AB" }}&nbsp;· Lidingö</p>
+          <p class="label">{{ hero.label | escape | replace: " AB", "&nbsp;AB" | replace: " · ", "&nbsp;· " }}</p>
           <h1>{{ site.tagline }}.</h1>
         </div>
       </div>
-      <p class="hero__intro">Senior .NET consultant and solutions architect with more than twenty years of experience. I design and build the backend that the rest of your product stands on.</p>
+      <p class="hero__intro">{{ hero.intro | escape }}</p>
       <div class="hero__actions">
-        <a class="button" href="#contact" data-email="{{ site.email.user }}|{{ site.email.domain }}">Get in touch {% include "icon.liquid", name: "arrow" %}</a>
-        <a class="link-underline" href="#services">What I work on</a>
+        <a class="button" href="#contact" data-email="{{ site.email.user }}|{{ site.email.domain }}">{{ hero.cta | escape }} {% include "icon.liquid", name: "arrow" %}</a>
+        <a class="link-underline" href="#services">{{ hero.secondary | escape }}</a>
       </div>
     </div>
     <div class="hero__photo">
@@ -28,37 +61,29 @@ layout: base.liquid
         {%- comment -%} Hidden on mobile; point it at the avatar file so phones don't download the big photo. {%- endcomment %}
         <source media="(max-width: 900px)" type="image/webp" srcset="/assets/img/henrik-becker-square.webp">
         <source type="image/webp" srcset="/assets/img/henrik-becker-800.webp 800w, /assets/img/henrik-becker-1200.webp 1200w" sizes="(max-width: 900px) 100vw, 640px">
-        <img src="/assets/img/henrik-becker-1200.jpg" srcset="/assets/img/henrik-becker-800.jpg 800w, /assets/img/henrik-becker-1200.jpg 1200w" sizes="(max-width: 900px) 100vw, 640px" width="1200" height="1125" alt="Henrik Becker" fetchpriority="high">
+        <img src="/assets/img/henrik-becker-1200.jpg" srcset="/assets/img/henrik-becker-800.jpg 800w, /assets/img/henrik-becker-1200.jpg 1200w" sizes="(max-width: 900px) 100vw, 640px" width="1200" height="1125" alt="{{ hero.photo_alt | escape }}" fetchpriority="high">
       </picture>
     </div>
   </section>
 
   <section class="services" id="services" aria-labelledby="services-title">
-    <h2 class="visually-hidden" id="services-title">Services</h2>
+    <h2 class="visually-hidden" id="services-title">{{ services.heading | escape }}</h2>
+    {% for service in services.items %}
     <div class="service">
-      <span class="service__number">01</span>
-      <h3>Backend &amp; .NET</h3>
-      <p>APIs, services and integrations in C# — built to be readable, testable and maintainable.</p>
+      <span class="service__number">{{ forloop.index | prepend: "0" }}</span>
+      <h3>{{ service.title | escape }}</h3>
+      <p>{{ service.text | escape }}</p>
     </div>
-    <div class="service">
-      <span class="service__number">02</span>
-      <h3>Solutions architecture</h3>
-      <p>Shaping systems so the next feature is easier than the last one.</p>
-    </div>
-    <div class="service">
-      <span class="service__number">03</span>
-      <h3>Applications on Azure</h3>
-      <p>Cloud-hosted .NET applications, from first deploy to steady state.</p>
-    </div>
+    {% endfor %}
   </section>
 
   <section class="section" id="projects" aria-labelledby="projects-title">
     <div class="section__head">
       <div>
-        <p class="label">Side projects</p>
-        <h2 id="projects-title">Things I build off the clock.</h2>
+        <p class="label">{{ side_projects.label | escape }}</p>
+        <h2 id="projects-title">{{ side_projects.heading | escape }}</h2>
       </div>
-      <p>Small, real products — each one an excuse to try a stack properly and ship it.</p>
+      <p>{{ side_projects.intro | escape }}</p>
     </div>
     <div class="projects">
       {% for project in projects %}
@@ -70,7 +95,7 @@ layout: base.liquid
         <div class="project__domain">{{ project.domain }}{% if project.badge %}<span class="project__badge">{{ project.badge }}</span>{% endif %}</div>
         <p class="project__tagline">{{ project.tagline }}</p>
         <p class="project__description">{{ project.description }}</p>
-        <ul class="chips" aria-label="Built with">
+        <ul class="chips" aria-label="{{ side_projects.tech_label | escape }}">
           {% for t in project.tech %}<li>{{ t }}</li>{% endfor %}
         </ul>
       </a>
@@ -80,20 +105,20 @@ layout: base.liquid
 
   <section class="band" id="blog" aria-labelledby="blog-title">
     <div>
-      <p class="label">Blog</p>
+      <p class="label">{{ blog_band.label | escape }}</p>
       {% if posts.size > 0 %}
       {% assign latest = posts | first %}
       <h2 id="blog-title">{{ latest.data.title }}</h2>
-      <p>{{ latest.data.description | default: "Notes on .NET, architecture and the side projects above." }}</p>
+      <p>{{ latest.data.description | default: blog_band.fallback_text }}</p>
       {% else %}
-      <h2 id="blog-title">Writing is on its way.</h2>
-      <p>Notes on .NET, architecture and the side projects above — including the parts that went sideways.</p>
+      <h2 id="blog-title">{{ blog_band.empty_heading | escape }}</h2>
+      <p>{{ blog_band.empty_text | escape }}</p>
       {% endif %}
     </div>
     {% if posts.size > 0 %}
-    <a class="band__action" href="{{ latest.url }}">Read the latest {% include "icon.liquid", name: "arrow" %}</a>
+    <a class="band__action" href="{{ latest.url }}">{{ blog_band.latest_action | escape }} {% include "icon.liquid", name: "arrow" %}</a>
     {% else %}
-    <span class="band__action" aria-disabled="true">Coming soon</span>
+    <span class="band__action" aria-disabled="true">{{ blog_band.empty_action | escape }}</span>
     {% endif %}
   </section>
 </div>

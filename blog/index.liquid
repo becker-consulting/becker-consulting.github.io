@@ -3,6 +3,10 @@ layout: page.liquid
 title: Blog
 description: Notes on .NET, architecture and side projects from Henrik Becker.
 permalink: /blog/
+empty_text: |
+  Writing is on its way. Notes on .NET, architecture and the side projects — including the parts that went sideways.
+
+  Until then, the [side projects](/#projects) are the best place to see what I've been up to.
 ---
 {% assign posts = collections.posts | reverse %}
 {% if posts.size > 0 %}
@@ -18,6 +22,5 @@ permalink: /blog/
   {% endfor %}
 </ul>
 {% else %}
-<p>Writing is on its way. Notes on .NET, architecture and the side projects — including the parts that went sideways.</p>
-<p>Until then, the <a href="/#projects">side projects</a> are the best place to see what I've been up to.</p>
+{{ empty_text | markdown }}
 {% endif %}
