@@ -26,15 +26,10 @@ side_projects:
 
 blog_band:
   label: Blog
-  # Shown until the first post exists
-  empty_heading: Writing is on its way.
-  empty_text: Notes on .NET, architecture and the side projects above — including the parts that went sideways.
-  empty_action: Coming soon
-  # Shown once there are posts (the heading is the latest post's title)
-  fallback_text: Notes on .NET, architecture and the side projects above.
-  latest_action: Read the latest
+  heading: Writing is on its way.
+  text: Notes on .NET, architecture and the side projects above — including the parts that went sideways.
+  action: Coming soon
 ---
-{% assign posts = collections.posts | reverse %}
 <div class="wrap">
   <section class="hero">
     <div class="hero__text">
@@ -103,22 +98,16 @@ blog_band:
     </div>
   </section>
 
+  {%- comment -%}
+  Blog band — hidden until the blog (in its own repo) is live.
+  Uncomment and point the action at the blog to bring it back.
   <section class="band" id="blog" aria-labelledby="blog-title">
     <div>
       <p class="label">{{ blog_band.label | escape }}</p>
-      {% if posts.size > 0 %}
-      {% assign latest = posts | first %}
-      <h2 id="blog-title">{{ latest.data.title }}</h2>
-      <p>{{ latest.data.description | default: blog_band.fallback_text }}</p>
-      {% else %}
-      <h2 id="blog-title">{{ blog_band.empty_heading | escape }}</h2>
-      <p>{{ blog_band.empty_text | escape }}</p>
-      {% endif %}
+      <h2 id="blog-title">{{ blog_band.heading | escape }}</h2>
+      <p>{{ blog_band.text | escape }}</p>
     </div>
-    {% if posts.size > 0 %}
-    <a class="band__action" href="{{ latest.url }}">{{ blog_band.latest_action | escape }} {% include "icon.liquid", name: "arrow" %}</a>
-    {% else %}
-    <span class="band__action" aria-disabled="true">{{ blog_band.empty_action | escape }}</span>
-    {% endif %}
+    <span class="band__action" aria-disabled="true">{{ blog_band.action | escape }}</span>
   </section>
+  {%- endcomment %}
 </div>
