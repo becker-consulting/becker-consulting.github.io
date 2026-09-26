@@ -4,10 +4,14 @@ title: Page not found
 permalink: /404.html
 robots: noindex
 eleventyExcludeFromCollections: true
+label: "404"
+heading: This page didn't build right.
+text: Or it never existed. Either way, it isn't here.
+action: Back to the start
 ---
 <div class="wrap not-found">
-  <p class="label">404</p>
-  <h1>This page didn't build right.</h1>
-  <p>Or it never existed. Either way, it isn't here.</p>
-  <a class="button" href="/">Back to the start {% include "icon.liquid", name: "arrow" %}</a>
+  <p class="label">{{ label | escape }}</p>
+  <h1>{{ heading | escape }}</h1>
+  <p>{{ text | escape }}</p>
+  <a class="button" href="/">{{ action | escape }} {% include "icon.liquid", name: "arrow" %}</a>
 </div>

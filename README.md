@@ -16,9 +16,9 @@ Favicons (`favicon.ico`, `apple-touch-icon.png` and `assets/img/favicon*.png`) a
 
 | Path | What |
 | --- | --- |
-| `_data/site.json` | Company details, contact email, org. number, links |
-| `_data/projects.json` | Side-project cards on the home page and CV |
-| `_data/cv.json` | Content of the short CV page |
+| `_data/site.yml` | Company details, contact email, org. number, links |
+| `_data/projects.yml` | Side-project cards on the home page and CV |
+| `_data/cv.yml` | Content of the short CV page |
 | `_layouts/` | `base` (header/footer), `page` (content pages), `post` (blog posts) |
 | `_includes/` | Header, footer, icons, obfuscated email link |
 | `assets/css/main.css` | All styles; colour tokens at the top, dark mode via `prefers-color-scheme` |
