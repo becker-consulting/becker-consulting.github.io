@@ -1,10 +1,11 @@
+import * as yaml from "js-yaml";
 import markdownItAnchor from "markdown-it-anchor";
-import syntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 
 const FAVICON_SIZES = [512, 192, 180, 64, 32, 16];
 
 export default function (eleventyConfig) {
-  eleventyConfig.addPlugin(syntaxHighlight);
+  // Data files (_data/*.yml) are YAML.
+  eleventyConfig.addDataExtension("yml,yaml", (contents) => yaml.load(contents));
 
   // Headings get ids so the "On this page" list can link to them.
   eleventyConfig.amendLibrary("md", (md) =>
@@ -35,9 +36,6 @@ export default function (eleventyConfig) {
   );
 
   eleventyConfig.addFilter("isoDate", (date) => new Date(date).toISOString().slice(0, 10));
-  eleventyConfig.addFilter("readableDate", (date) =>
-    new Date(date).toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" })
-  );
 
   return {
     dir: {

@@ -3,6 +3,20 @@ layout: base.liquid
 title: CV
 description: Short CV for Henrik Becker — senior .NET developer and solutions architect in Lidingö, Stockholm.
 permalink: /cv/
+
+labels:
+  kicker: CV · Short version
+  download: Full CV (PDF)
+  swedish: På svenska
+  experience: Selected experience
+  see_full: see the full CV
+  core: Core
+  certifications: Certifications
+  languages: Languages
+  side_projects: Side projects
+  formats: Other formats
+  markdown: Markdown
+  text: Plain text
 ---
 <div class="wrap">
   <section class="cv-head">
@@ -10,18 +24,18 @@ permalink: /cv/
       <div class="cv-head__photo">
         <picture>
           <source type="image/webp" srcset="/assets/img/henrik-becker-square.webp">
-          <img src="/assets/img/henrik-becker-square.jpg" width="400" height="400" alt="Henrik Becker">
+          <img src="/assets/img/henrik-becker-square.jpg" width="400" height="400" alt="{{ cv.name }}">
         </picture>
       </div>
       <div class="cv-head__text">
-        <p class="label">CV · Short version</p>
+        <p class="label">{{ labels.kicker | escape }}</p>
         <h1>{{ cv.name }}</h1>
         <p class="cv-head__title">{{ cv.title }} · {{ cv.location }}</p>
       </div>
     </div>
     <div class="cv-head__actions">
-      <a class="button button--small" href="{{ cv.downloads.pdf }}">{% include "icon.liquid", name: "download" %} Full CV (PDF)</a>
-      <a class="button button--ghost" href="{{ cv.downloads.pdf_sv }}" hreflang="sv" lang="sv">På svenska</a>
+      <a class="button button--small" href="{{ cv.downloads.pdf }}">{% include "icon.liquid", name: "download" %} {{ labels.download | escape }}</a>
+      <a class="button button--ghost" href="{{ cv.downloads.pdf_sv }}" hreflang="sv" lang="sv">{{ labels.swedish | escape }}</a>
     </div>
   </section>
 
@@ -29,7 +43,7 @@ permalink: /cv/
     <div>
       <p class="cv-summary">{{ cv.summary }}</p>
 
-      <h2 class="label">Selected experience</h2>
+      <h2 class="label">{{ labels.experience | escape }}</h2>
       {% for job in cv.experience %}
       <div class="cv-entry">
         <p class="cv-entry__years">{{ job.years }}</p>
@@ -42,7 +56,7 @@ permalink: /cv/
       {% endfor %}
       <div class="cv-entry cv-entry--earlier">
         <p class="cv-entry__years">{{ cv.earlier.years }}</p>
-        <p>{{ cv.earlier.text }} — <a href="{{ cv.downloads.pdf }}">see the full CV</a>.</p>
+        <p>{{ cv.earlier.text }} — <a href="{{ cv.downloads.pdf }}">{{ labels.see_full | escape }}</a>.</p>
       </div>
 
       <figure class="quote">
@@ -54,28 +68,28 @@ permalink: /cv/
 
     <aside class="cv-aside">
       <section>
-        <h2 class="label">Core</h2>
+        <h2 class="label">{{ labels.core | escape }}</h2>
         <ul>{% for item in cv.core %}<li>{{ item }}</li>{% endfor %}</ul>
       </section>
       <section>
-        <h2 class="label">Certifications</h2>
+        <h2 class="label">{{ labels.certifications | escape }}</h2>
         {% for c in cv.certifications %}<div class="cert"><span>{{ c.name }}</span><span>{{ c.issuer }} · {{ c.year }}</span></div>
         {% endfor %}
       </section>
       <section>
-        <h2 class="label">Languages</h2>
+        <h2 class="label">{{ labels.languages | escape }}</h2>
         <ul>{% for l in cv.languages %}<li>{{ l }}</li>{% endfor %}</ul>
       </section>
       <section>
-        <h2 class="label">Side projects</h2>
+        <h2 class="label">{{ labels.side_projects | escape }}</h2>
         {% for p in projects %}<a class="side-project" href="{{ p.url }}"><span>{{ p.name }}</span><span>{{ p.since }}</span></a>
         {% endfor %}
       </section>
       <section class="formats">
-        <h2 class="label">Other formats</h2>
+        <h2 class="label">{{ labels.formats | escape }}</h2>
         <div>
-          <a href="{{ cv.downloads.markdown }}">Markdown</a>
-          <a href="{{ cv.downloads.text }}">Plain text</a>
+          <a href="{{ cv.downloads.markdown }}">{{ labels.markdown | escape }}</a>
+          <a href="{{ cv.downloads.text }}">{{ labels.text | escape }}</a>
         </div>
       </section>
     </aside>

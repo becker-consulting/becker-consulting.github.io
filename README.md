@@ -16,28 +16,12 @@ Favicons (`favicon.ico`, `apple-touch-icon.png` and `assets/img/favicon*.png`) a
 
 | Path | What |
 | --- | --- |
-| `_data/site.json` | Company details, contact email, org. number, links |
-| `_data/projects.json` | Side-project cards on the home page and CV |
-| `_data/cv.json` | Content of the short CV page |
-| `_layouts/` | `base` (header/footer), `page` (content pages), `post` (blog posts) |
+| `_data/site.yml` | Company details, contact email, org. number, links |
+| `_data/projects.yml` | Side-project cards on the home page and CV |
+| `_data/cv.yml` | Content of the short CV page |
+| `_layouts/` | `base` (header/footer), `page` (content pages) |
 | `_includes/` | Header, footer, icons, obfuscated email link |
 | `assets/css/main.css` | All styles; colour tokens at the top, dark mode via `prefers-color-scheme` |
-| `posts/` | Blog posts as Markdown. The first post turns the "Coming soon" band into a link. |
-
-## Writing a blog post
-
-Add `posts/YYYY-MM-DD-some-slug.md`:
-
-```md
----
-title: Some title
-description: One sentence shown on the home page and blog list.
----
-
-Text in Markdown. `## Headings` show up in the "On this page" list.
-```
-
-It is published at `/blog/some-slug/`.
 
 ## Fonts
 

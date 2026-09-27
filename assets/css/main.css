@@ -63,10 +63,6 @@
   /* Code */
   --code-bg: #2A2126;
   --code-text: #E6E0E3;
-  --code-comment: #9A9095;
-  --code-keyword: #D9A08F;
-  --code-type: #8FB3AD;
-  --code-string: #E0C49B;
 
   --font-sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
   --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
@@ -307,7 +303,7 @@ a:hover { color: var(--ink); }
   .section__head { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
 }
 
-/* ---- Home: blog band --------------------------------------------------- */
+/* ---- Home: blog band (currently hidden) --------------------------------------------------- */
 
 .band {
   display: flex; justify-content: space-between; align-items: center; gap: 48px;
@@ -383,7 +379,7 @@ a.band__action:hover { color: var(--band-ink); border-color: var(--band-ink); }
 .prose dt { font-family: var(--font-mono); font-size: 13px; padding-top: 2px; }
 .prose dd { margin: 0; color: var(--ink); }
 
-/* Code blocks (Prism tokens) */
+/* Code blocks */
 .prose pre[class*="language-"], .prose pre {
   margin-top: 28px; padding: 24px 28px; border-radius: 14px; overflow-x: auto;
   background: var(--code-bg); color: var(--code-text);
@@ -391,21 +387,6 @@ a.band__action:hover { color: var(--band-ink); border-color: var(--band-ink); }
 }
 @media (prefers-color-scheme: dark) { .prose pre { border: 1px solid var(--line); } }
 .prose pre code { font-family: inherit; }
-.token.comment, .token.prolog, .token.doctype, .token.cdata { color: var(--code-comment); }
-.token.keyword, .token.boolean, .token.important, .token.atrule { color: var(--code-keyword); }
-.token.class-name, .token.builtin, .token.function, .token.attr-name, .token.tag { color: var(--code-type); }
-.token.string, .token.char, .token.attr-value, .token.number, .token.regex { color: var(--code-string); }
-.token.punctuation, .token.operator { color: var(--code-text); }
-
-/* Blog list */
-.post-list { list-style: none; margin: 40px 0 0; padding: 0; }
-.post-list li { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 32px; padding: 24px 0; border-top: 1px solid var(--line); }
-.post-list li:last-child { border-bottom: 1px solid var(--line); }
-.post-list time { font-family: var(--font-mono); font-size: 13px; padding-top: 5px; }
-.post-list a { font-size: 21px; font-weight: 600; color: var(--ink); }
-.post-list a:hover { color: var(--accent); }
-.post-list p { margin-top: 6px; font-size: 16px; }
-@media (max-width: 700px) { .post-list li { grid-template-columns: 1fr; gap: 6px; } }
 
 /* ---- CV ---------------------------------------------------------------- */
 

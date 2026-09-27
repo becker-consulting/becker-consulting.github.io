@@ -1,16 +1,13 @@
 ---
 layout: base.liquid
 ---
-{% assign is_post = false %}{% if tags contains "posts" %}{% assign is_post = true %}{% endif %}
 <div class="wrap article-layout">
   <article class="article">
     <nav class="breadcrumb" aria-label="Breadcrumb">
       <a href="/">Home</a><span aria-hidden="true">/</span>
-      {% if is_post %}<a href="/blog/">Blog</a><span aria-hidden="true">/</span>{% endif %}
       <span aria-current="page">{{ breadcrumb | default: title }}</span>
     </nav>
     <h1>{{ title }}</h1>
-    {% if is_post %}<p class="meta"><time datetime="{{ page.date | isoDate }}">{{ page.date | readableDate }}</time></p>{% endif %}
     {% if lead %}<p class="lead">{{ lead }}</p>{% endif %}
     <div class="prose">
       {{ content }}
