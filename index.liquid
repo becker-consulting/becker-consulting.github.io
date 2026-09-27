@@ -10,13 +10,7 @@ hero:
 
 services:
   heading: Services   # read by screen readers only
-  items:
-    - title: Backend & .NET
-      text: APIs, services and integrations in C# — built to be readable, testable and maintainable.
-    - title: Solutions architecture
-      text: Shaping systems so the next feature is easier than the last one.
-    - title: Applications on Azure
-      text: Cloud-hosted .NET applications, from first deploy to steady state.
+  # The cards themselves come from henrikbecker.net ("What I offer"), see _data/shared.js.
 
 side_projects:
   label: Side projects
@@ -63,7 +57,7 @@ blog_band:
 
   <section class="services" id="services" aria-labelledby="services-title">
     <h2 class="visually-hidden" id="services-title">{{ services.heading | escape }}</h2>
-    {% for service in services.items %}
+    {% for service in shared.services %}
     <div class="service">
       <span class="service__number">{{ forloop.index | prepend: "0" }}</span>
       <h3>{{ service.title | escape }}</h3>
