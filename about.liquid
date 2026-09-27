@@ -1,0 +1,25 @@
+---
+layout: page.liquid
+title: About
+permalink: /about/
+# Title, lead and body come from henrikbecker.net (shared.about, see _data/shared.js).
+# Only "The company" below is written here.
+eleventyComputed:
+  lead: "{{ shared.about.lead }}"
+  description: "{{ shared.about.description }}"
+---
+{{ shared.about.html }}
+{%- if shared.about.quote %}
+<blockquote>
+  <p>{{ shared.about.quote.text }}</p>
+  <p>{{ shared.about.quote.by }}</p>
+</blockquote>
+{%- endif %}
+
+<h2 id="the-company">The company</h2>
+<p>{{ site.company }} was founded in {{ site.founded }}. Every assignment since October that year has gone through it. Small side projects — {% for p in projects %}<a href="{{ p.url }}">{{ p.name }}</a>{% unless forloop.last %}{% if forloop.rindex0 == 1 %} and {% else %}, {% endif %}{% endunless %}{% endfor %} — are built here too.</p>
+<dl>
+  <dt>Registered office</dt><dd>{{ site.registeredOffice }}</dd>
+  <dt>Org. number</dt><dd>{{ site.orgNumber }}</dd>
+  <dt>VAT number</dt><dd>{{ site.vatNumber }}</dd>
+</dl>
