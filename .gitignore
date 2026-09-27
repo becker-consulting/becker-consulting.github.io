@@ -37,4 +37,5 @@ desktop.ini
 
 !.gitkeep
 
-
+# eleventy-fetch cache (shared content from henrikbecker.net)
+.cache/

@@ -30,7 +30,7 @@ labels:
       <div class="cv-head__text">
         <p class="label">{{ labels.kicker | escape }}</p>
         <h1>{{ cv.name }}</h1>
-        <p class="cv-head__title">{{ cv.title }} · {{ cv.location }}</p>
+        <p class="cv-head__title">{{ cv.title }} · {{ site.location }}</p>
       </div>
     </div>
     <div class="cv-head__actions">
@@ -49,7 +49,8 @@ labels:
         <p class="cv-entry__years">{{ job.years }}</p>
         <div class="cv-entry__body">
           <h3 class="cv-entry__head"><span class="cv-entry__name">{{ job.name }}</span> <span class="cv-entry__role">{{ job.role }}</span></h3>
-          <p class="cv-entry__summary">{{ job.summary }}</p>
+          {% if job.summary %}<div class="cv-entry__summary">{{ job.summary }}</div>{% endif %}
+          {% if job.highlight %}<p class="cv-entry__highlight">{{ job.highlight }}</p>{% endif %}
           <p class="cv-entry__tech">{{ job.tech }}</p>
         </div>
       </div>
@@ -59,11 +60,15 @@ labels:
         <p>{{ cv.earlier.text }} — <a href="{{ cv.downloads.pdf }}">{{ labels.see_full | escape }}</a>.</p>
       </div>
 
-      <figure class="quote">
-        {% include "icon.liquid", name: "quote" %}
-        <blockquote>{{ cv.recommendation.quote }}</blockquote>
-        <figcaption>{{ cv.recommendation.by }}</figcaption>
-      </figure>
+      <div class="cv-quotes">
+        {%- for recommendation in cv.recommendations %}
+        <figure class="quote">
+          {% include "icon.liquid", name: "quote" %}
+          <blockquote>{{ recommendation.text }}</blockquote>
+          <figcaption>{{ recommendation.by }}</figcaption>
+        </figure>
+        {%- endfor %}
+      </div>
     </div>
 
     <aside class="cv-aside">
