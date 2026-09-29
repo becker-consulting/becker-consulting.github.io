@@ -3,6 +3,8 @@ title: Becker Consulting
 company: Henrik Becker Consulting AB
 alternateName: Becker Solutions
 tagline: Building the right software right.
+# <title> of the home page: what people search for, not the tagline.
+homeTitle: Becker Consulting · Senior .NET consultant, Stockholm
 description: Senior .NET consultant and solutions architect in Lidingö, Stockholm. Backend development, system integration and architecture in C# and .NET.
 url: https://www.becker-consulting.se
 lang: en-AU
