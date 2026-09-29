@@ -1,10 +1,9 @@
 // Side projects: cards on the home page and the list on the CV page, in this order.
-// Mapped from the shared data (see shared.js).
+// Mapped from the shared data (see shared.js). Returns { en, sv }.
 import shared from "./shared.js";
 
-export default async function () {
-  const data = await shared();
-  return data.projects.map((project) => ({
+const map = (data) =>
+  data.projects.map((project) => ({
     name: project.name,
     url: project.url ?? project.page,
     domain: project.url ? new URL(project.url).host : null,
@@ -14,4 +13,8 @@ export default async function () {
     badge: project.badge,
     since: project.since,
   }));
+
+export default async function () {
+  const data = await shared();
+  return { en: map(data.en), sv: map(data.sv) };
 }

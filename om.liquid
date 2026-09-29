@@ -1,0 +1,21 @@
+---
+layout: about.liquid
+lang: sv
+translationKey: about
+permalink: /om/
+# Rubrik, ingress och brödtext kommer från henrikbecker.net (shared.sv.about, se _data/shared.js).
+# Bara avsnittet om företaget skrivs här.
+eleventyComputed:
+  title: "{{ shared.sv.about.title }}"
+  lead: "{{ shared.sv.about.lead }}"
+  description: "{{ shared.sv.about.description }}"
+company:
+  id: foretaget
+  heading: Företaget
+  text: "{company} grundades {founded}. Alla uppdrag sedan oktober samma år har gått genom bolaget. Här byggs också mindre sidoprojekt:"
+  and: och
+  text_after: .
+  registered_office: Säte
+  org_number: Org.nr
+  vat_number: Momsreg.nr
+---

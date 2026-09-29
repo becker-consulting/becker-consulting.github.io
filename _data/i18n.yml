@@ -1,0 +1,60 @@
+# Everything that differs between the Swedish and the English site: page chrome,
+# default title and description, and where each page lives. Pages set `lang` (sv is
+# the default) and read their strings from i18n[lang]. Page copy lives in each page's
+# front matter; shared content (services, CV, projects, About) comes from henrikbecker.net.
+sv:
+  html_lang: sv
+  hreflang: sv
+  locale: sv_SE
+  language_name: Svenska
+  home_url: /
+  about_url: /om/
+  cv_url: /cv/
+  home_title: Becker Consulting · Senior .NET-konsult i Stockholm
+  tagline: Rätt mjukvara, rätt byggd.
+  description: Senior .NET-konsult och lösningsarkitekt i Lidingö, Stockholm. Backendutveckling, systemintegration och arkitektur i C# och .NET.
+  location: Lidingö, Stockholm
+  registered_office: Lidingö
+  skip: Hoppa till innehållet
+  menu: Meny
+  main_nav: Huvudmeny
+  breadcrumb: Brödsmulor
+  home: Hem
+  on_this_page: På den här sidan
+  org_nr: Org.nr
+  registered: Säte i Lidingö
+  nav:
+    services: Tjänster
+    projects: Projekt
+    about: Om
+    cv: CV
+    contact: Kontakt
+en:
+  html_lang: en-AU
+  # Australian English on the page, but hreflang says just "en" so the English
+  # pages are offered to English speakers everywhere, not only in Australia.
+  hreflang: en
+  locale: en_AU
+  language_name: English
+  home_url: /en/
+  about_url: /en/about/
+  cv_url: /en/cv/
+  home_title: Becker Consulting · Senior .NET consultant, Stockholm
+  tagline: Building the right software right.
+  description: Senior .NET consultant and solutions architect in Lidingö, Stockholm. Backend development, system integration and architecture in C# and .NET.
+  location: Lidingö, Stockholm
+  registered_office: Lidingö, Sweden
+  skip: Skip to content
+  menu: Menu
+  main_nav: Main
+  breadcrumb: Breadcrumb
+  home: Home
+  on_this_page: On this page
+  org_nr: Org. nr
+  registered: Registered in Lidingö, Sweden
+  nav:
+    services: Services
+    projects: Projects
+    about: About
+    cv: CV
+    contact: Contact

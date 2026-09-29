@@ -1,0 +1,19 @@
+---
+layout: page.liquid
+---
+{%- comment -%} About page. Title, lead and body come from henrikbecker.net (shared[lang].about, see _data/shared.js); "The company" section is written here, with its wording in each page's front matter. {%- endcomment %}
+{{ shared[lang].about.html }}
+{%- if shared[lang].about.quote %}
+<blockquote>
+  <p>{{ shared[lang].about.quote.text }}</p>
+  <p>{{ shared[lang].about.quote.by }}</p>
+</blockquote>
+{%- endif %}
+
+<h2 id="{{ company.id }}">{{ company.heading }}</h2>
+<p>{{ company.text | replace: "{company}", site.company | replace: "{founded}", site.founded }} {% for p in projects[lang] %}<a href="{{ p.url }}">{{ p.name }}</a>{% unless forloop.last %}{% if forloop.rindex0 == 1 %} {{ company.and }} {% else %}, {% endif %}{% endunless %}{% endfor %}{{ company.text_after }}</p>
+<dl>
+  <dt>{{ company.registered_office }}</dt><dd>{{ i18n[lang].registered_office }}</dd>
+  <dt>{{ company.org_number }}</dt><dd>{{ site.orgNumber }}</dd>
+  <dt>{{ company.vat_number }}</dt><dd>{{ site.vatNumber }}</dd>
+</dl>

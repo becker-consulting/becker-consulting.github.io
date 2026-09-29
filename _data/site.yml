@@ -1,20 +1,13 @@
 # Company details used across the site (header, footer, meta tags, JSON-LD).
+# Language-specific text (tagline, description, titles, labels) is in i18n.yml.
 title: Becker Consulting
 company: Henrik Becker Consulting AB
 # Registered alternate name (Skatteverket) first, then the short name the site uses.
 alternateName:
   - Becker Solutions
   - Becker Consulting
-tagline: Building the right software right.
-# <title> of the home page: what people search for, not the tagline.
-homeTitle: Becker Consulting · Senior .NET consultant, Stockholm
-description: Senior .NET consultant and solutions architect in Lidingö, Stockholm. Backend development, system integration and architecture in C# and .NET.
 url: https://www.becker-consulting.se
-lang: en-AU
-locale: en_AU
 founded: '2017'
-location: Lidingö, Stockholm
-registeredOffice: Lidingö, Sweden
 orgNumber: 559120-2147
 vatNumber: SE559120214701
 email:

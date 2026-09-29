@@ -1,25 +1,19 @@
 ---
-layout: page.liquid
-title: About
 permalink: /about/
-# Title, lead and body come from henrikbecker.net (shared.about, see _data/shared.js).
-# Only "The company" below is written here.
-eleventyComputed:
-  lead: "{{ shared.about.lead }}"
-  description: "{{ shared.about.description }}"
+eleventyExcludeFromCollections: true
+layout: null
+redirect_to: /en/about/
 ---
-{{ shared.about.html }}
-{%- if shared.about.quote %}
-<blockquote>
-  <p>{{ shared.about.quote.text }}</p>
-  <p>{{ shared.about.quote.by }}</p>
-</blockquote>
-{%- endif %}
-
-<h2 id="the-company">The company</h2>
-<p>{{ site.company }} was founded in {{ site.founded }}. Every assignment since October that year has gone through it. Small side projects — {% for p in projects %}<a href="{{ p.url }}">{{ p.name }}</a>{% unless forloop.last %}{% if forloop.rindex0 == 1 %} and {% else %}, {% endif %}{% endunless %}{% endfor %} — are built here too.</p>
-<dl>
-  <dt>Registered office</dt><dd>{{ site.registeredOffice }}</dd>
-  <dt>Org. number</dt><dd>{{ site.orgNumber }}</dd>
-  <dt>VAT number</dt><dd>{{ site.vatNumber }}</dd>
-</dl>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Moved</title>
+  <meta name="robots" content="noindex">
+  <link rel="canonical" href="{{ site.url }}{{ redirect_to }}">
+  <meta http-equiv="refresh" content="0; url={{ redirect_to }}">
+</head>
+<body>
+  <p>This page has moved to <a href="{{ redirect_to }}">{{ site.url }}{{ redirect_to }}</a>.</p>
+</body>
+</html>
