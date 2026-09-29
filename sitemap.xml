@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://www.becker-consulting.se/about/</loc>
+    <loc>https://www.becker-consulting.se/en/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.becker-consulting.se/en/about/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.becker-consulting.se/om/" />
+  </url>
+  <url>
+    <loc>https://www.becker-consulting.se/en/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.becker-consulting.se/en/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.becker-consulting.se/" />
   </url>
   <url>
     <loc>https://www.becker-consulting.se/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.becker-consulting.se/en/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.becker-consulting.se/" />
+  </url>
+  <url>
+    <loc>https://www.becker-consulting.se/om/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.becker-consulting.se/en/about/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.becker-consulting.se/om/" />
   </url>
 </urlset>
