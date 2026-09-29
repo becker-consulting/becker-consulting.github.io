@@ -3,8 +3,8 @@ layout: base.liquid
 ---
 <div class="wrap article-layout">
   <article class="article">
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <a href="/">Home</a><span aria-hidden="true">/</span>
+    <nav class="breadcrumb" aria-label="{{ i18n[lang].breadcrumb }}">
+      <a href="{{ i18n[lang].home_url }}">{{ i18n[lang].home }}</a><span aria-hidden="true">/</span>
       <span aria-current="page">{{ breadcrumb | default: title }}</span>
     </nav>
     <h1>{{ title }}</h1>
@@ -15,8 +15,8 @@ layout: base.liquid
   </article>
   {% assign toc = content | toc %}
   {% if toc.size > 1 %}
-  <aside class="toc" aria-label="On this page">
-    <p class="label">On this page</p>
+  <aside class="toc" aria-label="{{ i18n[lang].on_this_page }}">
+    <p class="label">{{ i18n[lang].on_this_page }}</p>
     {% for item in toc %}<a href="#{{ item.id }}">{{ item.text }}</a>
     {% endfor %}
   </aside>

@@ -1,104 +1,32 @@
 ---
-layout: base.liquid
+layout: cv.liquid
+lang: sv
+translationKey: cv
 title: CV
-description: Short CV for Henrik Becker — senior .NET developer and solutions architect in Lidingö, Stockholm.
+description: Kort CV för Henrik Becker, senior .NET-utvecklare och lösningsarkitekt i Lidingö, Stockholm.
 permalink: /cv/
-# The full CV on henrikbecker.net is the original; this short version shouldn't compete with it in search.
-canonical: https://www.henrikbecker.net/cv/
+# Hela CV:t på henrikbecker.net är originalet; den här kortversionen ska inte konkurrera med det i sökresultaten.
+canonical: https://www.henrikbecker.net/sv/cv/
+
+# Vilka filer i shared-datans downloads som länkas.
+files:
+  pdf: pdf_sv
+  other_pdf: pdf
+  other_lang: en
+  markdown: markdown_sv
+  text: text_sv
 
 labels:
-  kicker: CV · Short version
-  download: Full CV (PDF)
-  swedish: På svenska
-  experience: Selected experience
-  see_full: see the full CV
-  core: Core
-  certifications: Certifications
-  languages: Languages
-  side_projects: Side projects
-  formats: Other formats
+  kicker: CV · Kortversion
+  download: Hela CV:t (PDF)
+  other_language: In English
+  experience: Utvald erfarenhet
+  see_full: Se hela CV:t
+  core: Kärnkompetens
+  certifications: Certifieringar
+  languages: Språk
+  side_projects: Sidoprojekt
+  formats: Andra format
   markdown: Markdown
-  text: Plain text
+  text: Ren text
 ---
-<div class="wrap">
-  <section class="cv-head">
-    <div class="cv-head__id">
-      <div class="cv-head__photo">
-        <picture>
-          <source type="image/webp" srcset="/assets/img/henrik-becker-square.webp">
-          <img src="/assets/img/henrik-becker-square.jpg" width="400" height="400" alt="{{ cv.name }}">
-        </picture>
-      </div>
-      <div class="cv-head__text">
-        <p class="label">{{ labels.kicker | escape }}</p>
-        <h1>{{ cv.name }}</h1>
-        <p class="cv-head__title">{{ cv.title }} · {{ site.location }}</p>
-      </div>
-    </div>
-    <div class="cv-head__actions">
-      <a class="button button--small" href="{{ cv.downloads.pdf }}">{% include "icon.liquid", name: "download" %} {{ labels.download | escape }}</a>
-      <a class="button button--ghost" href="{{ cv.downloads.pdf_sv }}" hreflang="sv" lang="sv">{{ labels.swedish | escape }}</a>
-    </div>
-  </section>
-
-  <div class="cv-body">
-    <div>
-      <p class="cv-summary">{{ cv.summary }}</p>
-
-      <h2 class="label">{{ labels.experience | escape }}</h2>
-      {% for job in cv.experience %}
-      <div class="cv-entry">
-        <p class="cv-entry__years">{{ job.years }}</p>
-        <div class="cv-entry__body">
-          <h3 class="cv-entry__head"><span class="cv-entry__name">{{ job.name }}</span> <span class="cv-entry__role">{{ job.role }}</span></h3>
-          {% if job.summary %}<div class="cv-entry__summary">{{ job.summary }}</div>{% endif %}
-          {% if job.highlight %}<p class="cv-entry__highlight">{{ job.highlight }}</p>{% endif %}
-          <p class="cv-entry__tech">{{ job.tech }}</p>
-        </div>
-      </div>
-      {% endfor %}
-      <div class="cv-entry cv-entry--earlier">
-        <p class="cv-entry__years">{{ cv.earlier.years }}</p>
-        <p>{{ cv.earlier.text }} — <a href="{{ cv.downloads.pdf }}">{{ labels.see_full | escape }}</a>.</p>
-      </div>
-
-      <div class="cv-quotes">
-        {%- for recommendation in cv.recommendations %}
-        <figure class="quote">
-          {% include "icon.liquid", name: "quote" %}
-          <blockquote>{{ recommendation.text }}</blockquote>
-          <figcaption>{{ recommendation.by }}</figcaption>
-        </figure>
-        {%- endfor %}
-      </div>
-    </div>
-
-    <aside class="cv-aside">
-      <section>
-        <h2 class="label">{{ labels.core | escape }}</h2>
-        <ul>{% for item in cv.core %}<li>{{ item }}</li>{% endfor %}</ul>
-      </section>
-      <section>
-        <h2 class="label">{{ labels.certifications | escape }}</h2>
-        {% for c in cv.certifications %}<div class="cert"><span>{{ c.name }}</span><span>{{ c.issuer }} · {{ c.year }}</span></div>
-        {% endfor %}
-      </section>
-      <section>
-        <h2 class="label">{{ labels.languages | escape }}</h2>
-        <ul>{% for l in cv.languages %}<li>{{ l }}</li>{% endfor %}</ul>
-      </section>
-      <section>
-        <h2 class="label">{{ labels.side_projects | escape }}</h2>
-        {% for p in projects %}<a class="side-project" href="{{ p.url }}"><span>{{ p.name }}</span><span>{{ p.since }}</span></a>
-        {% endfor %}
-      </section>
-      <section class="formats">
-        <h2 class="label">{{ labels.formats | escape }}</h2>
-        <div>
-          <a href="{{ cv.downloads.markdown }}">{{ labels.markdown | escape }}</a>
-          <a href="{{ cv.downloads.text }}">{{ labels.text | escape }}</a>
-        </div>
-      </section>
-    </aside>
-  </div>
-</div>

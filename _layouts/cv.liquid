@@ -1,0 +1,87 @@
+---
+layout: base.liquid
+---
+{%- comment -%} Short CV. Content comes from henrikbecker.net (cv[lang], see _data/cv.js); labels and which download files to link are in each page's front matter. {%- endcomment %}
+{%- assign c = cv[lang] -%}
+<div class="wrap">
+  <section class="cv-head">
+    <div class="cv-head__id">
+      <div class="cv-head__photo">
+        <picture>
+          <source type="image/webp" srcset="/assets/img/henrik-becker-square.webp">
+          <img src="/assets/img/henrik-becker-square.jpg" width="400" height="400" alt="{{ c.name }}">
+        </picture>
+      </div>
+      <div class="cv-head__text">
+        <p class="label">{{ labels.kicker | escape }}</p>
+        <h1>{{ c.name }}</h1>
+        <p class="cv-head__title">{{ c.title }} · {{ i18n[lang].location }}</p>
+      </div>
+    </div>
+    <div class="cv-head__actions">
+      <a class="button button--small" href="{{ c.downloads[files.pdf] }}">{% include "icon.liquid", name: "download" %} {{ labels.download | escape }}</a>
+      <a class="button button--ghost" href="{{ c.downloads[files.other_pdf] }}" hreflang="{{ files.other_lang }}" lang="{{ files.other_lang }}">{{ labels.other_language | escape }}</a>
+    </div>
+  </section>
+
+  <div class="cv-body">
+    <div>
+      <p class="cv-summary">{{ c.summary }}</p>
+
+      <h2 class="label">{{ labels.experience | escape }}</h2>
+      {% for job in c.experience %}
+      <div class="cv-entry">
+        <p class="cv-entry__years">{{ job.years }}</p>
+        <div class="cv-entry__body">
+          <h3 class="cv-entry__head"><span class="cv-entry__name">{{ job.name }}</span> <span class="cv-entry__role">{{ job.role }}</span></h3>
+          {% if job.summary %}<div class="cv-entry__summary">{{ job.summary }}</div>{% endif %}
+          {% if job.highlight %}<p class="cv-entry__highlight">{{ job.highlight }}</p>{% endif %}
+          <p class="cv-entry__tech">{{ job.tech }}</p>
+        </div>
+      </div>
+      {% endfor %}
+      <div class="cv-entry cv-entry--earlier">
+        <p class="cv-entry__years">{{ c.earlier.years }}</p>
+        <p>{{ c.earlier.text }}. <a href="{{ c.downloads[files.pdf] }}">{{ labels.see_full | escape }}</a>.</p>
+      </div>
+
+      <div class="cv-quotes">
+        {%- for recommendation in c.recommendations %}
+        <figure class="quote">
+          {% include "icon.liquid", name: "quote" %}
+          <blockquote>{{ recommendation.text }}</blockquote>
+          <figcaption>{{ recommendation.by }}</figcaption>
+        </figure>
+        {%- endfor %}
+      </div>
+    </div>
+
+    <aside class="cv-aside">
+      <section>
+        <h2 class="label">{{ labels.core | escape }}</h2>
+        <ul>{% for item in c.core %}<li>{{ item }}</li>{% endfor %}</ul>
+      </section>
+      <section>
+        <h2 class="label">{{ labels.certifications | escape }}</h2>
+        {% for c in c.certifications %}<div class="cert"><span>{{ c.name }}</span><span>{{ c.issuer }} · {{ c.year }}</span></div>
+        {% endfor %}
+      </section>
+      <section>
+        <h2 class="label">{{ labels.languages | escape }}</h2>
+        <ul>{% for l in c.languages %}<li>{{ l }}</li>{% endfor %}</ul>
+      </section>
+      <section>
+        <h2 class="label">{{ labels.side_projects | escape }}</h2>
+        {% for p in projects[lang] %}<a class="side-project" href="{{ p.url }}"><span>{{ p.name }}</span><span>{{ p.since }}</span></a>
+        {% endfor %}
+      </section>
+      <section class="formats">
+        <h2 class="label">{{ labels.formats | escape }}</h2>
+        <div>
+          <a href="{{ c.downloads[files.markdown] }}">{{ labels.markdown | escape }}</a>
+          <a href="{{ c.downloads[files.text] }}">{{ labels.text | escape }}</a>
+        </div>
+      </section>
+    </aside>
+  </div>
+</div>

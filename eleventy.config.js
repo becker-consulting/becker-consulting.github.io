@@ -37,6 +37,16 @@ export default function (eleventyConfig) {
 
   eleventyConfig.addFilter("isoDate", (date) => new Date(date).toISOString().slice(0, 10));
 
+  // Language versions of a page: every page with the same `translationKey`, as
+  // { lang, url }. Used for hreflang links, the sitemap and the language switch.
+  eleventyConfig.addFilter("translations", (items = [], key) =>
+    key
+      ? items
+          .filter((item) => item.data.translationKey === key)
+          .map((item) => ({ lang: item.data.lang ?? "sv", url: item.url }))
+      : []
+  );
+
   return {
     dir: {
       input: ".",

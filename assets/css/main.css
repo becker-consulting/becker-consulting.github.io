@@ -183,6 +183,9 @@ a:hover { color: var(--ink); }
 .nav a:hover, .nav-mobile__panel a:hover { color: var(--ink); }
 .nav a[aria-current="page"], .nav-mobile__panel a[aria-current="page"] { color: var(--ink); font-weight: 500; }
 .nav .nav-contact, .nav-mobile__panel .nav-contact { color: var(--accent); font-weight: 500; }
+/* Language switch: same small outlined label as on henrikbecker.net. */
+.nav .nav-lang, .nav-mobile__panel .nav-lang { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--line); border-radius: 5px; }
+.nav-mobile__panel .nav-lang { align-self: flex-start; }
 
 .tag {
   font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase;

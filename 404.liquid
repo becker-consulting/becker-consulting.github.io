@@ -1,17 +1,21 @@
 ---
 layout: base.liquid
-title: Page not found
+lang: sv
+title: Sidan finns inte
 permalink: /404.html
 robots: noindex
 eleventyExcludeFromCollections: true
 label: "404"
-heading: This page didn't build right.
-text: Or it never existed. Either way, it isn't here.
-action: Back to the start
+heading: Den här sidan blev inte rätt byggd.
+text: Eller så har den aldrig funnits. Hur som helst finns den inte här.
+action: Tillbaka till start
+text_en: This page didn't build right, or it never existed.
+action_en: Go to the English site
 ---
 <div class="wrap not-found">
   <p class="label">{{ label | escape }}</p>
   <h1>{{ heading | escape }}</h1>
   <p>{{ text | escape }}</p>
   <a class="button" href="/">{{ action | escape }} {% include "icon.liquid", name: "arrow" %}</a>
+  <p lang="en">{{ text_en | escape }} <a href="/en/">{{ action_en | escape }}</a>.</p>
 </div>

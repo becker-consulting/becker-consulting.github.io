@@ -17,11 +17,26 @@ Favicons (`favicon.ico`, `apple-touch-icon.png` and `assets/img/favicon*.png`) a
 | Path | What |
 | --- | --- |
 | `_data/site.yml` | Company details, contact email, org. number, links |
-| `_data/projects.yml` | Side-project cards on the home page and CV |
-| `_data/cv.yml` | Content of the short CV page |
-| `_layouts/` | `base` (header/footer), `page` (content pages) |
+| `_data/i18n.yml` | Everything that differs between Swedish and English: nav, footer, default title and description, page URLs |
+| `_data/shared.js` | Shared content from henrikbecker.net (services, About, CV, projects), in both languages |
+| `_data/cv.js`, `_data/projects.js` | The short CV and the side projects, mapped from the shared content |
+| `_layouts/` | `base` (header/footer), `page` (content pages), `home`, `about`, `cv` |
+| `index.liquid`, `om.liquid`, `cv.liquid` | Swedish pages (the default language) |
+| `en/` | English pages |
 | `_includes/` | Header, footer, icons, obfuscated email link |
 | `assets/css/main.css` | All styles; colour tokens at the top, dark mode via `prefers-color-scheme` |
+
+## Languages
+
+Swedish is the default at `/`, English lives under `/en/`. Each page sets `lang` (`sv` or `en`) and a `translationKey`; pages with the same key are linked to each other with hreflang tags, in the sitemap and by the language switch in the header. Page copy is in each page's front matter; the markup is shared through the layouts.
+
+| Swedish | English |
+| --- | --- |
+| `/` | `/en/` |
+| `/om/` | `/en/about/` |
+| `/cv/` | `/en/cv/` |
+
+`/about/` (the old English About URL) is a redirect page to `/en/about/`.
 
 ## Fonts
 

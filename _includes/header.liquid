@@ -1,27 +1,31 @@
+{%- comment %} `t` (this page's strings) and `alternates` (its language versions) come from base.liquid. {%- endcomment %}
 {% capture nav_links %}
-  <a href="/#services">Services</a>
-  <a href="/#projects">Projects</a>
+  <a href="{{ t.home_url }}#services">{{ t.nav.services }}</a>
+  <a href="{{ t.home_url }}#projects">{{ t.nav.projects }}</a>
   {%- comment %} Blog lives in its own repo; link it here when it's live.
   <a href="https://…">Blog</a>
   {% endcomment %}
-  <a href="/about/"{% if page.url == "/about/" %} aria-current="page"{% endif %}>About</a>
-  <a href="/cv/"{% if page.url == "/cv/" %} aria-current="page"{% endif %}>CV</a>
-  <a class="nav-contact" href="#contact" data-email="{{ site.email.user }}|{{ site.email.domain }}">Contact</a>
+  <a href="{{ t.about_url }}"{% if page.url == t.about_url %} aria-current="page"{% endif %}>{{ t.nav.about }}</a>
+  <a href="{{ t.cv_url }}"{% if page.url == t.cv_url %} aria-current="page"{% endif %}>{{ t.nav.cv }}</a>
+  <a class="nav-contact" href="#contact" data-email="{{ site.email.user }}|{{ site.email.domain }}">{{ t.nav.contact }}</a>
+  {%- for alt in alternates %}{% if alt.lang != lang %}
+  <a class="nav-lang" href="{{ alt.url }}" hreflang="{{ i18n[alt.lang].hreflang }}" lang="{{ i18n[alt.lang].html_lang }}">{{ i18n[alt.lang].language_name }}</a>
+  {%- endif %}{% endfor %}
 {% endcapture %}
-<header class="site-header{% if page.url != '/' %} site-header--ruled{% endif %}">
+<header class="site-header{% if page.url != t.home_url %} site-header--ruled{% endif %}">
   <div class="wrap site-header__inner">
-    <a class="brand" href="/">
+    <a class="brand" href="{{ t.home_url }}">
       <span class="brand__mark" aria-hidden="true">b</span>
       <span>{{ site.title }}</span>
     </a>
-    <nav class="nav" aria-label="Main">
+    <nav class="nav" aria-label="{{ t.main_nav }}">
       {{ nav_links }}
     </nav>
     <details class="nav-mobile">
-      <summary aria-label="Menu">
+      <summary aria-label="{{ t.menu }}">
         {% include "icon.liquid", name: "menu" %}
       </summary>
-      <nav class="nav-mobile__panel" aria-label="Main">
+      <nav class="nav-mobile__panel" aria-label="{{ t.main_nav }}">
         {{ nav_links }}
       </nav>
     </details>

@@ -1,0 +1,21 @@
+---
+layout: about.liquid
+lang: en
+translationKey: about
+permalink: /en/about/
+# Title, lead and body come from henrikbecker.net (shared.en.about, see _data/shared.js).
+# Only "The company" section is written here.
+eleventyComputed:
+  title: "{{ shared.en.about.title }}"
+  lead: "{{ shared.en.about.lead }}"
+  description: "{{ shared.en.about.description }}"
+company:
+  id: the-company
+  heading: The company
+  text: "{company} was founded in {founded}. Every assignment since October that year has gone through it. Small side projects are built here too:"
+  and: and
+  text_after: .
+  registered_office: Registered office
+  org_number: Org. number
+  vat_number: VAT number
+---

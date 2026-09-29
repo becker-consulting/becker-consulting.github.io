@@ -3,11 +3,14 @@ permalink: /sitemap.xml
 eleventyExcludeFromCollections: true
 ---
 <?xml version="1.0" encoding="utf-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
 {%- comment %} No <lastmod>: the build date changes on every deploy and says nothing. Pages canonical elsewhere are left out. {%- endcomment %}
 {%- for item in collections.all %}{% unless item.data.canonical %}
   <url>
     <loc>{{ site.url }}{{ item.url }}</loc>
+    {%- assign alternates = collections.all | translations: item.data.translationKey %}{% for alt in alternates %}
+    <xhtml:link rel="alternate" hreflang="{{ i18n[alt.lang].hreflang }}" href="{{ site.url }}{{ alt.url }}" />
+    {%- endfor %}
   </url>
 {%- endunless %}{% endfor %}
 </urlset>
