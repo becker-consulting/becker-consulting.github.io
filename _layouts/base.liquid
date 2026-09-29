@@ -3,14 +3,16 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  {% if title %}{% assign page_title = title | append: " · " | append: site.title %}{% else %}{% assign page_title = site.title | append: " · " | append: site.tagline %}{% endif %}
+  {% if title %}{% assign page_title = title | append: " · " | append: site.title %}{% else %}{% assign page_title = site.homeTitle %}{% endif %}
   {% assign page_description = description | default: site.description %}
   {% assign page_url = page.url | prepend: site.url %}
+  {%- comment %} Front matter `canonical` points a page at its original elsewhere (the CV lives on henrikbecker.net). {%- endcomment %}
+  {% assign canonical_url = canonical | default: page_url %}
   <title>{{ page_title }}</title>
   <meta name="description" content="{{ page_description }}">
   <meta name="author" content="{{ site.author }}">
   {% if robots %}<meta name="robots" content="{{ robots }}">{% endif %}
-  <link rel="canonical" href="{{ page_url }}">
+  <link rel="canonical" href="{{ canonical_url }}">
   <meta name="color-scheme" content="light dark">
   <meta name="theme-color" content="#F2F1F1" media="(prefers-color-scheme: light)">
   <meta name="theme-color" content="#171517" media="(prefers-color-scheme: dark)">
@@ -19,7 +21,7 @@
   <meta property="og:locale" content="{{ site.locale }}">
   <meta property="og:title" content="{{ page_title }}">
   <meta property="og:description" content="{{ page_description }}">
-  <meta property="og:url" content="{{ page_url }}">
+  <meta property="og:url" content="{{ canonical_url }}">
   <meta property="og:image" content="{{ site.image | prepend: site.url }}">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="google-adsense-account" content="{{ site.adsense }}">
@@ -27,9 +29,14 @@
   {
     "@context": "https://schema.org",
     "@type": "Organization",
+    "@id": {{ site.url | append: "/#organization" | json }},
     "name": {{ site.company | json }},
     "alternateName": {{ site.alternateName | json }},
-    "url": {{ site.url | json }},
+    "url": {{ site.url | append: "/" | json }},
+    "description": {{ site.description | json }},
+    "logo": {{ "/assets/img/favicon512x512.png" | prepend: site.url | json }},
+    "image": {{ site.image | prepend: site.url | json }},
+    "sameAs": [{{ site.github | json }}, {{ site.linkedin | json }}],
     "email": {{ site.email.user | append: "@" | append: site.email.domain | json }},
     "vatID": {{ site.vatNumber | json }},
     "identifier": { "@type": "PropertyValue", "propertyID": "Organisationsnummer", "value": {{ site.orgNumber | json }} },
