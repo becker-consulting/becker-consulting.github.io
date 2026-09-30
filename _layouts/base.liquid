@@ -60,6 +60,7 @@
   {% for size in favicon_sizes %}<link rel="icon" type="image/png" href="/assets/img/favicon{{ size }}x{{ size }}.png" sizes="{{ size }}x{{ size }}">
   {% endfor %}<link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="preload" href="/assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/assets/css/shared.css">
   <link rel="stylesheet" href="/assets/css/main.css">
 </head>
 <body>
@@ -69,6 +70,9 @@
     {{ content }}
   </main>
   {% include "footer.liquid" %}
+  <button class="theme-toggle" type="button" title="{{ t.theme_toggle }}" aria-label="{{ t.theme_toggle }}"></button>
+  <script src="/assets/js/theme.js" defer></script>
   <script src="/assets/js/site.js" defer></script>
+  <script src="/assets/js/toc.js" defer></script>
 </body>
 </html>

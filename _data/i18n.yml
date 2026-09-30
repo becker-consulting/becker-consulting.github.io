@@ -16,6 +16,7 @@ sv:
   location: Lidingö, Stockholm
   registered_office: Lidingö
   skip: Hoppa till innehållet
+  theme_toggle: Växla mörkt läge
   menu: Meny
   main_nav: Huvudmeny
   breadcrumb: Brödsmulor
@@ -45,6 +46,7 @@ en:
   location: Lidingö, Stockholm
   registered_office: Lidingö, Sweden
   skip: Skip to content
+  theme_toggle: Toggle dark mode
   menu: Menu
   main_nav: Main
   breadcrumb: Breadcrumb
