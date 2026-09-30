@@ -1,0 +1,324 @@
+/* ==========================================================================
+   Shared design — becker-consulting.se and www.henrikbecker.net
+   Palette sampled from the portrait; body text in warm grey rather than
+   near-black, headings carry the contrast.
+
+   Single source for what the two sites share: fonts, tokens, base elements,
+   buttons, header, footer and content pages (breadcrumb, title, lead, prose,
+   "On this page"). henrikbecker.net links it from
+   https://www.becker-consulting.se/assets/css/shared.css, so a change here
+   shows up there as soon as this site is deployed. Site-specific styles
+   (landing page, CV) stay in each site's own stylesheet.
+
+   Links in components reset their own borders, so the file looks the same
+   whatever the host site's element defaults are.
+   ========================================================================== */
+
+@font-face {
+  font-family: "Geist";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("/assets/fonts/geist-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Geist";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("/assets/fonts/geist-latin-ext-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+@font-face {
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("/assets/fonts/geist-mono-latin-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: "Geist Mono";
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url("/assets/fonts/geist-mono-latin-ext-wght-normal.woff2") format("woff2-variations");
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+
+/* ---- Tokens ------------------------------------------------------------ */
+
+:root {
+  color-scheme: light dark;
+
+  /* Light — sampled from the portrait */
+  --bg: #F2F1F1;          /* studio backdrop, lifted */
+  --surface: #E3E2E4;     /* studio grey */
+  --card: #EAE8E9;
+  --ink: #2E2429;         /* jacket shadow — headings */
+  --text: #6B6268;        /* jacket highlight — body, 5.2:1 */
+  --line: #D6D2D4;        /* pendant, softened */
+  --line-strong: #C9C4C6;
+  --line-dashed: #B9B2B5;
+  --accent: #A4533D;      /* beard copper */
+  --on-accent: #F2F1F1;
+  --band-bg: #2A2126;
+  --band-border: transparent;
+  --band-text: #CFC8CB;
+  --band-ink: #F7F5F5;
+  --band-label: #D9A08F;
+  --band-line: #5A4F55;
+
+  /* Code */
+  --code-bg: #2A2126;
+  --code-text: #E6E0E3;
+
+  --font-sans: "Geist", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+
+  --gutter: clamp(20px, 5.6vw, 80px);
+  --max: 1440px;
+  --radius: 20px;
+}
+
+/* Dark follows the system setting unless the root element carries .light or .dark
+   (henrikbecker.net has a theme toggle; becker-consulting.se doesn't). */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --bg: #171517;
+    --surface: #221E21;
+    --card: #221E21;
+    --ink: #EDEAEB;
+    --text: #A69EA2;
+    --line: #332D31;
+    --line-strong: #4A4247;
+    --line-dashed: #5A4F55;
+    --accent: #D9A08F;
+    --on-accent: #171517;
+    --band-bg: #1E1A1D;
+    --band-border: #332D31;
+    --band-text: #A69EA2;
+    --band-ink: #EDEAEB;
+    --code-bg: #1E1A1D;
+  }
+}
+:root.dark {
+  --bg: #171517;
+  --surface: #221E21;
+  --card: #221E21;
+  --ink: #EDEAEB;
+  --text: #A69EA2;
+  --line: #332D31;
+  --line-strong: #4A4247;
+  --line-dashed: #5A4F55;
+  --accent: #D9A08F;
+  --on-accent: #171517;
+  --band-bg: #1E1A1D;
+  --band-border: #332D31;
+  --band-text: #A69EA2;
+  --band-ink: #EDEAEB;
+  --code-bg: #1E1A1D;
+}
+
+/* ---- Base -------------------------------------------------------------- */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: 24px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 18px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+main { flex: 1 0 auto; }
+
+h1, h2, h3, h4 { color: var(--ink); font-weight: 600; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+img { display: block; max-width: 100%; height: auto; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { color: var(--ink); }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+.wrap { width: 100%; max-width: var(--max); margin-inline: auto; padding-inline: var(--gutter); }
+
+.skip-link {
+  position: absolute; left: 16px; top: -100px; z-index: 10;
+  padding: 10px 16px; border-radius: 8px;
+  background: var(--ink); color: var(--bg); border: 0;
+}
+.skip-link:focus { top: 16px; color: var(--bg); }
+
+.label {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+
+.icon { flex-shrink: 0; }
+
+.visually-hidden {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+/* ---- Buttons ----------------------------------------------------------- */
+
+.button {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 0 26px; border: 0; border-radius: 10px;
+  background: var(--accent); color: var(--on-accent);
+  font-size: 16px; font-weight: 500; line-height: 1.2;
+}
+.button:hover { color: var(--on-accent); filter: brightness(1.08); }
+.button--ghost { background: transparent; color: var(--ink); border: 1px solid var(--line-strong); min-height: 48px; padding: 0 18px; font-size: 15px; }
+.button--ghost:hover { color: var(--ink); border-color: var(--ink); filter: none; }
+.button--small { min-height: 48px; padding: 0 22px; font-size: 15px; }
+
+.link-underline { font-weight: 500; color: var(--ink); border-bottom: 1px solid var(--line-strong); padding-bottom: 2px; }
+.link-underline:hover { border-color: var(--ink); }
+
+/* ---- Header ------------------------------------------------------------ */
+
+.site-header--ruled { border-bottom: 1px solid var(--line); }
+.site-header__inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; padding-block: 32px; }
+
+.brand { display: inline-flex; align-items: center; gap: 12px; color: var(--ink); font-size: 18px; font-weight: 600; letter-spacing: -0.01em; border: 0; }
+.brand:hover { color: var(--ink); }
+.brand__mark {
+  width: 28px; height: 28px; border-radius: 7px;
+  display: grid; place-items: center;
+  background: var(--ink); color: var(--bg);
+  font-size: 15px; font-weight: 600; line-height: 1;
+}
+
+.nav { display: flex; align-items: center; gap: 40px; font-size: 15px; }
+.nav a, .nav-mobile__panel a { color: var(--text); display: inline-flex; align-items: center; gap: 8px; border: 0; }
+.nav a:hover, .nav-mobile__panel a:hover { color: var(--ink); }
+.nav a[aria-current="page"], .nav-mobile__panel a[aria-current="page"] { color: var(--ink); font-weight: 500; }
+.nav .nav-contact, .nav-mobile__panel .nav-contact { color: var(--accent); font-weight: 500; }
+/* Language switch: same small outlined label as on henrikbecker.net. */
+.nav .nav-lang, .nav-mobile__panel .nav-lang { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border: 1px solid var(--line); border-radius: 5px; }
+.nav-mobile__panel .nav-lang { align-self: flex-start; }
+
+.tag {
+  font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase;
+  padding: 2px 6px; border-radius: 4px; border: 1px solid var(--line); line-height: 1.4;
+}
+
+.nav-mobile { display: none; position: relative; }
+.nav-mobile summary {
+  list-style: none; cursor: pointer;
+  width: 44px; height: 44px; display: grid; place-items: center;
+  color: var(--ink); border-radius: 10px;
+}
+.nav-mobile summary::-webkit-details-marker { display: none; }
+.nav-mobile[open] summary { background: var(--surface); }
+.nav-mobile__panel {
+  position: absolute; right: 0; top: calc(100% + 8px); z-index: 5;
+  min-width: 220px; padding: 10px;
+  display: flex; flex-direction: column;
+  background: var(--bg); border: 1px solid var(--line); border-radius: 14px;
+  box-shadow: 0 12px 32px rgba(23, 21, 23, 0.14);
+}
+.nav-mobile__panel a { padding: 12px 14px; border-radius: 8px; font-size: 16px; }
+.nav-mobile__panel a:hover { background: var(--surface); }
+
+@media (max-width: 900px) {
+  .site-header__inner { padding-block: 20px; }
+  .nav { display: none; }
+  .nav-mobile { display: block; }
+}
+
+/* ---- Footer ------------------------------------------------------------ */
+
+.site-footer { border-top: 1px solid var(--line); margin-top: 96px; font-size: 14px; }
+.site-footer__inner { display: flex; justify-content: space-between; align-items: center; gap: 16px 32px; flex-wrap: wrap; padding-block: 32px 40px; }
+.site-footer__links { display: flex; gap: 32px; flex-wrap: wrap; }
+.site-footer__links a { color: var(--ink); border: 0; }
+.site-footer__links a:hover { color: var(--accent); }
+
+@media (max-width: 700px) {
+  .site-footer { margin-top: 64px; }
+  .site-footer__inner { flex-direction: column; align-items: flex-start; padding-block: 24px 32px; }
+  .site-footer__links { gap: 24px; }
+}
+
+/* ---- Content pages ----------------------------------------------------- */
+
+.article-layout { display: grid; grid-template-columns: minmax(0, 720px) 240px; justify-content: center; gap: 120px; padding-top: 64px; }
+.article { min-width: 0; }
+.breadcrumb { display: flex; gap: 10px; font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.04em; }
+.breadcrumb a { color: var(--text); border: 0; }
+.breadcrumb a:hover { color: var(--ink); }
+.breadcrumb [aria-current] { color: var(--ink); }
+.article h1 { margin-top: 20px; font-size: clamp(40px, 4.2vw, 60px); line-height: 1.05; letter-spacing: -0.035em; }
+.article .meta { margin-top: 16px; font-family: var(--font-mono); font-size: 13px; }
+.lead { margin-top: 28px; font-size: clamp(19px, 1.6vw, 23px); line-height: 1.55; color: var(--ink); }
+
+.toc { position: sticky; top: 32px; align-self: start; display: flex; flex-direction: column; gap: 14px; padding-top: 120px; font-size: 14px; }
+.toc a { color: var(--text); border: 0; }
+.toc a:hover, .toc a[aria-current="true"] { color: var(--accent); }
+.toc a[aria-current="true"] { font-weight: 500; }
+
+@media (max-width: 1100px) {
+  .article-layout { grid-template-columns: minmax(0, 720px); gap: 0; padding-top: 40px; }
+  .toc { display: none; }
+}
+
+/* Prose — markdown output */
+.prose { font-size: 18px; line-height: 1.75; }
+.prose > * + * { margin-top: 18px; }
+.prose h2 { margin-top: 64px; font-size: 30px; line-height: 1.2; letter-spacing: -0.02em; }
+.prose h3 { margin-top: 40px; font-size: 22px; line-height: 1.3; letter-spacing: -0.01em; }
+.prose h2 + *, .prose h3 + * { margin-top: 18px; }
+.prose strong { color: var(--ink); font-weight: 600; }
+.prose a { color: var(--accent); border-bottom: 1px solid currentColor; }
+.prose a:hover { color: var(--ink); }
+.prose ul, .prose ol { padding-left: 22px; }
+.prose li + li { margin-top: 8px; }
+.prose hr { border: 0; border-top: 1px solid var(--line); margin-block: 48px; }
+.prose img { border-radius: 14px; }
+.prose :not(pre) > code {
+  font-family: var(--font-mono); font-size: 0.84em;
+  background: var(--surface); color: var(--ink);
+  padding: 2px 7px; border-radius: 5px;
+}
+.prose blockquote, .quote { margin: 56px 0 0; padding: 0; display: flex; flex-direction: column; gap: 16px; }
+.prose blockquote p, .quote blockquote { margin: 0; font-size: clamp(20px, 1.7vw, 24px); line-height: 1.5; color: var(--ink); letter-spacing: -0.01em; }
+.prose blockquote::before {
+  content: ""; width: 36px; height: 28px; background: var(--accent);
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 28'%3E%3Cpath d='M0 28V16C0 7 5 1.5 14 0l1.5 4C10 6 8 9.5 8 14h7v14H0zm20 0V16c0-9 5-14.5 14-16l1.5 4C30 6 28 9.5 28 14h7v14H20z'/%3E%3C/svg%3E") no-repeat;
+          mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 28'%3E%3Cpath d='M0 28V16C0 7 5 1.5 14 0l1.5 4C10 6 8 9.5 8 14h7v14H0zm20 0V16c0-9 5-14.5 14-16l1.5 4C30 6 28 9.5 28 14h7v14H20z'/%3E%3C/svg%3E") no-repeat;
+}
+.prose blockquote p + p, .quote figcaption { font-size: 15px; color: var(--text); letter-spacing: 0; }
+.quote .quote-mark { color: var(--accent); }
+.prose dl { display: grid; grid-template-columns: 160px minmax(0, 1fr); gap: 10px 24px; font-size: 16px; }
+.prose dt { font-family: var(--font-mono); font-size: 13px; padding-top: 2px; }
+.prose dd { margin: 0; color: var(--ink); }
+
+/* Code blocks */
+.prose pre[class*="language-"], .prose pre {
+  margin-top: 28px; padding: 24px 28px; border-radius: 14px; overflow-x: auto;
+  background: var(--code-bg); color: var(--code-text);
+  font-family: var(--font-mono); font-size: 14px; line-height: 1.7; tab-size: 4;
+}
+@media (prefers-color-scheme: dark) { .prose pre { border: 1px solid var(--line); } }
+.prose pre code { font-family: inherit; }
+
