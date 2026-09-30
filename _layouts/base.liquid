@@ -70,6 +70,8 @@
     {{ content }}
   </main>
   {% include "footer.liquid" %}
+  <button class="theme-toggle" type="button" title="{{ t.theme_toggle }}" aria-label="{{ t.theme_toggle }}"></button>
+  <script src="/assets/js/theme.js" defer></script>
   <script src="/assets/js/site.js" defer></script>
   <script src="/assets/js/toc.js" defer></script>
 </body>

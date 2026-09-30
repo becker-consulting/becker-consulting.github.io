@@ -19,7 +19,7 @@ Trunk-based development with short-lived feature branches.
 
 ## Shared design
 
-- This repo is the single source for the look both sites share. `assets/css/shared.css` has the fonts, palette (incl. dark mode and the `.light`/`.dark` classes henrikbecker.net's theme toggle sets), base elements, buttons, header, footer and content pages (breadcrumb, title, lead, `.prose`, the "On this page" list). `assets/js/toc.js` marks the current section in that list. `main.css` has only what this site has alone: landing page, CV, 404.
+- This repo is the single source for the look both sites share. `assets/css/shared.css` has the fonts, palette (incl. dark mode and the `.light`/`.dark` classes henrikbecker.net's theme toggle sets), base elements, buttons, header, footer and content pages (breadcrumb, title, lead, `.prose`, the "On this page" list). `assets/js/toc.js` marks the current section in that list, and `assets/js/theme.js` runs the invisible dark-mode toggle in the top-left corner (`.theme-toggle`). `main.css` has only what this site has alone: landing page, CV, 404.
 - www.henrikbecker.net links `https://www.becker-consulting.se/assets/css/shared.css`, `/assets/js/toc.js` and the Geist fonts directly, so a change here goes live there on the next deploy of this site. Check both sites when changing shared.css, and keep class names stable.
 - Local work on both sites: run this one with `npm start` (port 8080), and henrikbecker.net with `SHARED_ASSETS=http://localhost:8080`.
 
