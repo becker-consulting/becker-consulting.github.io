@@ -16,3 +16,10 @@ Trunk-based development with short-lived feature branches.
 - The site is bilingual: Swedish at `/`, English under `/en/`. See the Languages section in README.md; chrome strings are in `_data/i18n.yml`.
 - Local work on both sites: `SHARED_DATA=../handiman.github.io/_site/assets/site-data.json npm start` (a path or URL).
 - CI rebuilds on `repository_dispatch` (`shared-content-updated`), sent by henrikbecker.net after it deploys, and can be run by hand (workflow_dispatch).
+
+## Shared design
+
+- This repo is the single source for the look both sites share. `assets/css/shared.css` has the fonts, palette (incl. dark mode and the `.light`/`.dark` classes henrikbecker.net's theme toggle sets), base elements, buttons, header, footer and content pages (breadcrumb, title, lead, `.prose`, the "On this page" list). `assets/js/toc.js` marks the current section in that list. `main.css` has only what this site has alone: landing page, CV, 404.
+- www.henrikbecker.net links `https://www.becker-consulting.se/assets/css/shared.css`, `/assets/js/toc.js` and the Geist fonts directly, so a change here goes live there on the next deploy of this site. Check both sites when changing shared.css, and keep class names stable.
+- Local work on both sites: run this one with `npm start` (port 8080), and henrikbecker.net with `SHARED_ASSETS=http://localhost:8080`.
+
