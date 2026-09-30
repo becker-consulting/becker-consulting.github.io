@@ -2,9 +2,6 @@
 {% capture nav_links %}
   <a href="{{ t.home_url }}#services">{{ t.nav.services }}</a>
   <a href="{{ t.home_url }}#projects">{{ t.nav.projects }}</a>
-  {%- comment %} Blog lives in its own repo; link it here when it's live.
-  <a href="https://…">Blog</a>
-  {% endcomment %}
   <a href="{{ t.about_url }}"{% if page.url == t.about_url %} aria-current="page"{% endif %}>{{ t.nav.about }}</a>
   <a href="{{ t.cv_url }}"{% if page.url == t.cv_url %} aria-current="page"{% endif %}>{{ t.nav.cv }}</a>
   <a class="nav-contact" href="#contact" data-email="{{ site.email.user }}|{{ site.email.domain }}">{{ t.nav.contact }}</a>

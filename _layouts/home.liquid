@@ -70,16 +70,13 @@ layout: base.liquid
     </div>
   </section>
 
-  {%- comment -%}
-  Blog band — hidden until the blog (in its own repo) is live.
-  Uncomment and point the action at the blog to bring it back.
+  {%- comment %} Blog band: the blog lives on www.henrikbecker.net; this links to it. {%- endcomment %}
   <section class="band" id="blog" aria-labelledby="blog-title">
     <div>
       <p class="label">{{ blog_band.label | escape }}</p>
       <h2 id="blog-title">{{ blog_band.heading | escape }}</h2>
       <p>{{ blog_band.text | escape }}</p>
     </div>
-    <span class="band__action" aria-disabled="true">{{ blog_band.action | escape }}</span>
+    <a class="band__action" href="{{ blog_band.url }}">{{ blog_band.action | escape }} {% include "icon.liquid", name: "external" %}</a>
   </section>
-  {%- endcomment %}
 </div>

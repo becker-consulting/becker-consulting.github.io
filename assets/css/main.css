@@ -80,7 +80,7 @@
   .section__head { flex-direction: column; align-items: flex-start; gap: 16px; margin-bottom: 20px; }
 }
 
-/* ---- Home: blog band (currently hidden) --------------------------------------------------- */
+/* ---- Home: blog band (links to the blog on henrikbecker.net) ----------- */
 
 .band {
   display: flex; justify-content: space-between; align-items: center; gap: 48px;
