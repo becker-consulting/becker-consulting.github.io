@@ -11,9 +11,19 @@
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.becker-consulting.se/" />
   </url>
   <url>
+    <loc>https://www.becker-consulting.se/en/privacy/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.becker-consulting.se/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.becker-consulting.se/integritet/" />
+  </url>
+  <url>
     <loc>https://www.becker-consulting.se/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.becker-consulting.se/en/" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.becker-consulting.se/" />
+  </url>
+  <url>
+    <loc>https://www.becker-consulting.se/integritet/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.becker-consulting.se/en/privacy/" />
+    <xhtml:link rel="alternate" hreflang="sv" href="https://www.becker-consulting.se/integritet/" />
   </url>
   <url>
     <loc>https://www.becker-consulting.se/om/</loc>
