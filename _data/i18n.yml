@@ -10,6 +10,7 @@ sv:
   home_url: /
   about_url: /om/
   cv_url: /cv/
+  privacy_url: /integritet/
   home_title: Becker Consulting · Senior .NET-konsult i Stockholm
   tagline: Rätt mjukvara, rätt byggd.
   description: Senior .NET-konsult och lösningsarkitekt i Lidingö, Stockholm. Backendutveckling, systemintegration och arkitektur i C# och .NET.
@@ -24,6 +25,7 @@ sv:
   on_this_page: På den här sidan
   org_nr: Org.nr
   registered: Säte i Lidingö
+  privacy: Integritetspolicy
   nav:
     services: Tjänster
     projects: Projekt
@@ -40,6 +42,7 @@ en:
   home_url: /en/
   about_url: /en/about/
   cv_url: /en/cv/
+  privacy_url: /en/privacy/
   home_title: Becker Consulting · Senior .NET consultant, Stockholm
   tagline: Building the right software right.
   description: Senior .NET consultant and solutions architect in Lidingö, Stockholm. Backend development, system integration and architecture in C# and .NET.
@@ -54,6 +57,7 @@ en:
   on_this_page: On this page
   org_nr: Org. nr
   registered: Registered in Lidingö, Sweden
+  privacy: Privacy policy
   nav:
     services: Services
     projects: Projects
