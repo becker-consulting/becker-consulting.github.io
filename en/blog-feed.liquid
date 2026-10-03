@@ -1,0 +1,28 @@
+---
+permalink: /en/blog/feed.xml
+eleventyExcludeFromCollections: true
+layout: null
+---
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <title>{{ site.title }} · Blog</title>
+  <subtitle>Henrik Becker on .NET, software architecture, AI tools and side projects.</subtitle>
+  <link href="{{ site.url }}/en/blog/feed.xml" rel="self"/>
+  <link href="{{ site.url }}/en/blog/"/>
+  <id>{{ site.url }}/en/blog/</id>
+  {%- assign newest = collections.blog | first %}
+  <updated>{{ newest.date | date: "%Y-%m-%dT%H:%M:%SZ" }}</updated>
+  <author><name>{{ site.author }}</name></author>
+  {%- for post in collections.blog %}
+  <entry>
+    <title>{{ post.data.title | escape }}</title>
+    <link href="{{ site.url }}{{ post.url }}"/>
+    <id>{{ site.url }}{{ post.url }}</id>
+    <updated>{{ post.date | date: "%Y-%m-%dT%H:%M:%SZ" }}</updated>
+    {%- if post.data.description %}
+    <summary>{{ post.data.description | escape }}</summary>
+    {%- endif %}
+    <content type="html">{{ post.content | escape }}</content>
+  </entry>
+  {%- endfor %}
+</feed>

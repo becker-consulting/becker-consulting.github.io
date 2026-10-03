@@ -20,6 +20,11 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("favicon.ico");
   eleventyConfig.addPassthroughCopy("apple-touch-icon.png");
 
+  // Blog posts (posts/), newest first. See posts/posts.11tydata.js.
+  eleventyConfig.addCollection("blog", (collectionApi) =>
+    collectionApi.getFilteredByTag("posts").sort((a, b) => b.date - a.date)
+  );
+
   eleventyConfig.ignores.add("README.md");
   eleventyConfig.ignores.add("CLAUDE.md");
   eleventyConfig.ignores.add(".github/**");

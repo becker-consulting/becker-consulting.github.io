@@ -1,0 +1,24 @@
+---
+layout: base.liquid
+---
+{%- comment -%} A blog post: breadcrumb back to the blog, title, date, the description as lead, and a link to the LinkedIn original when there is one. {%- endcomment -%}
+{%- assign post_date = page.date | date: "%Y-%m-%d" -%}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":{{ title | json }},"description":{{ description | json }},"datePublished":{{ page.date | date: "%Y-%m-%dT%H:%M:%SZ" | json }},"url":{{ page.url | prepend: site.url | json }},"mainEntityOfPage":{{ page.url | prepend: site.url | json }},"inLanguage":"en","author":{"@type":"Person","@id":"https://www.henrikbecker.net/#person","name":{{ site.author | json }}},"publisher":{"@id":{{ site.url | append: "/#organization" | json }}}{% if original_url %},"sameAs":{{ original_url | json }}{% endif %}}</script>
+<div class="wrap article-layout">
+  <article class="article">
+    <nav class="breadcrumb" aria-label="{{ i18n[lang].breadcrumb }}">
+      <a href="{{ i18n[lang].home_url }}">{{ i18n[lang].home }}</a><span aria-hidden="true">/</span>
+      <a href="{{ i18n[lang].blog_url }}">{{ i18n[lang].nav.blog }}</a>
+    </nav>
+    <h1>{{ title }}</h1>
+    <p class="post-date"><time datetime="{{ post_date }}">{{ post_date }}</time></p>
+    {% if description %}<p class="lead">{{ description }}</p>{% endif %}
+    <div class="prose post-body">
+      {{ content }}
+    </div>
+    <p class="post-footer">
+      <a href="{{ i18n[lang].blog_url }}">← All posts</a>
+      {% if original_url %}<a href="{{ original_url }}">Originally posted on LinkedIn</a>{% endif %}
+    </p>
+  </article>
+</div>

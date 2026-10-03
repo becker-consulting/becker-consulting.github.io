@@ -23,6 +23,7 @@ Favicons (`favicon.ico`, `apple-touch-icon.png` and `assets/img/favicon*.png`) a
 | `_layouts/` | `base` (header/footer), `page` (content pages), `home`, `about`, `cv` |
 | `index.liquid`, `om.liquid`, `cv.liquid`, `integritet.liquid` | Swedish pages (the default language) |
 | `en/` | English pages |
+| `posts/` | Blog posts, `YYYY-MM-DD-slug.md`, published at `/en/blog/slug/` (English only). Front matter: `title`, `description`, `date`, optional `original_url` (the LinkedIn original). `en/blog.liquid` is the index, `en/blog-feed.liquid` the Atom feed at `/en/blog/feed.xml` |
 | `_includes/` | Header, footer, icons, obfuscated email link |
 | `assets/css/main.css` | All styles; colour tokens at the top, dark mode via `prefers-color-scheme` |
 
@@ -35,6 +36,7 @@ Swedish is the default at `/`, English lives under `/en/`. Each page sets `lang`
 | `/` | `/en/` |
 | `/om/` | `/en/about/` |
 | `/cv/` | `/en/cv/` |
+| (none, English only) | `/en/blog/` |
 | `/integritet/` | `/en/privacy/` |
 
 `/about/` (the old English About URL) is a redirect page to `/en/about/`.

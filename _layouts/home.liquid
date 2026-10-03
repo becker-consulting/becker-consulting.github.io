@@ -70,13 +70,13 @@ layout: base.liquid
     </div>
   </section>
 
-  {%- comment %} Blog band: the blog lives on www.henrikbecker.net; this links to it. {%- endcomment %}
+  {%- comment %} Blog band: links to the blog at /en/blog/ (English only). {%- endcomment %}
   <section class="band" id="blog" aria-labelledby="blog-title">
     <div>
       <p class="label">{{ blog_band.label | escape }}</p>
       <h2 id="blog-title">{{ blog_band.heading | escape }}</h2>
       <p>{{ blog_band.text | escape }}</p>
     </div>
-    <a class="band__action" href="{{ blog_band.url }}">{{ blog_band.action | escape }} {% include "icon.liquid", name: "external" %}</a>
+    <a class="band__action" href="{{ i18n[lang].blog_url }}"{% if lang != "en" %} hreflang="en"{% endif %}>{{ blog_band.action | escape }}</a>
   </section>
 </div>

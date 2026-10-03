@@ -4,6 +4,7 @@
   <a href="{{ t.home_url }}#projects">{{ t.nav.projects }}</a>
   <a href="{{ t.about_url }}"{% if page.url == t.about_url %} aria-current="page"{% endif %}>{{ t.nav.about }}</a>
   <a href="{{ t.cv_url }}"{% if page.url == t.cv_url %} aria-current="page"{% endif %}>{{ t.nav.cv }}</a>
+  <a href="{{ t.blog_url }}"{% if page.url contains t.blog_url %} aria-current="page"{% endif %}{% if lang != "en" %} hreflang="en"{% endif %}>{{ t.nav.blog }}</a>
   <a class="nav-contact" href="#contact" data-email="{{ site.email.user }}|{{ site.email.domain }}">{{ t.nav.contact }}</a>
   {%- for alt in alternates %}{% if alt.lang != lang %}
   <a class="nav-lang" href="{{ alt.url }}" hreflang="{{ i18n[alt.lang].hreflang }}" lang="{{ i18n[alt.lang].html_lang }}">{{ i18n[alt.lang].language_name }}</a>
