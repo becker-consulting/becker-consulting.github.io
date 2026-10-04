@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+  <title>Becker Consulting · Blog</title>
+  <subtitle>Henrik Becker on .NET, software architecture, AI tools and side projects.</subtitle>
+  <link href="https://www.becker-consulting.se/en/blog/feed.xml" rel="self"/>
+  <link href="https://www.becker-consulting.se/en/blog/"/>
+  <id>https://www.becker-consulting.se/en/blog/</id>
+  <updated>2026-09-04T20:44:52Z</updated>
+  <author><name>Henrik Becker</name></author>
+  <entry>
+    <title>AI tools don&#39;t know your domain</title>
+    <link href="https://www.becker-consulting.se/en/blog/ai-and-domain-knowledge/"/>
+    <id>https://www.becker-consulting.se/en/blog/ai-and-domain-knowledge/</id>
+    <updated>2026-09-04T20:44:52Z</updated>
+    <summary>Why domain knowledge matters more, not less, now that AI writes a lot of the code.</summary>
+    <content type="html">&lt;p&gt;Claude Code has changed how I work. Boilerplate, refactoring, finding my way around an unfamiliar codebase, drafting tests: a lot of that is faster now.&lt;/p&gt;
+&lt;p&gt;But these tools don&#39;t know your domain. They don&#39;t know why a business rule exists, which edge case matters to your users, or what &amp;quot;correct&amp;quot; means in your context. And they don&#39;t know when they&#39;re wrong. They&#39;re just as confident either way.&lt;/p&gt;
+&lt;p&gt;So domain knowledge matters more now, not less. The people who get the most out of AI are the ones who know the domain well enough to spot when it&#39;s confidently wrong, and to steer it when it&#39;s guessing.&lt;/p&gt;
+&lt;p&gt;Treat it as a tool. Anyone who treats it as a colleague who knows the business is in for a surprise, usually in production.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Built something completely useless in an afternoon</title>
+    <link href="https://www.becker-consulting.se/en/blog/uiaas/"/>
+    <id>https://www.becker-consulting.se/en/blog/uiaas/</id>
+    <updated>2026-09-03T16:25:08Z</updated>
+    <summary>Meet UIaaS — Useless Information as a Service.</summary>
+    <content type="html">&lt;p&gt;Meet UIaaS — Useless Information as a Service. Inspired by Kittens-as-a-Service, it&#39;s a fully documented API that returns information you didn&#39;t need and can&#39;t use. Swagger docs and everything, because if you&#39;re going to be useless, you might as well be professionally useless about it.&lt;/p&gt;
+&lt;p&gt;There&#39;s a &amp;quot;usefulness&amp;quot; column in the database. By design, it&#39;s only ever allowed to be zero or negative.&lt;/p&gt;
+&lt;p&gt;There&#39;s also a &amp;quot;beg for money&amp;quot; button. No further comment.&lt;/p&gt;
+&lt;p&gt;The actual point, buried under the bit: from idea to a live, documented API in about an afternoon, with Claude Code. Semantic CV took weeks by comparison. The AI makes the typing fast, not the engineering.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://uiaas.becker-consulting.se/&#34;&gt;https://uiaas.becker-consulting.se/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;(Also — open to new consulting engagements. Backend, .NET, solutions architecture. Unlike UIaaS, the usefulness column on those projects is reliably positive.)&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Launching semantic.cv</title>
+    <link href="https://www.becker-consulting.se/en/blog/semantic-cv-launch/"/>
+    <id>https://www.becker-consulting.se/en/blog/semantic-cv-launch/</id>
+    <updated>2026-04-17T21:43:03Z</updated>
+    <summary>A structured, JSON-LD–based way to write and publish a CV.</summary>
+    <content type="html">&lt;p&gt;Today I launched semantic.cv.&lt;/p&gt;
+&lt;p&gt;You write your CV once as structured data (schema.org JSON-LD) and publish it as a web page, an ATS-friendly PDF and a designed PDF. There have been structured CV formats before, JSON Resume being the best known, but I wanted one built on schema.org, with a workflow all the way to a published CV.&lt;/p&gt;
+&lt;p&gt;My own CV is built with it now. It took a few weeks of work and a lot of iteration.&lt;/p&gt;
+&lt;p&gt;It&#39;s live at &lt;a href=&#34;https://semantic.cv&#34;&gt;https://semantic.cv&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+</feed>

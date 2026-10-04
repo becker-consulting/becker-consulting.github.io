@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://www.becker-consulting.se/en/blog/semantic-cv-launch/</loc>
+  </url>
+  <url>
+    <loc>https://www.becker-consulting.se/en/blog/uiaas/</loc>
+  </url>
+  <url>
+    <loc>https://www.becker-consulting.se/en/blog/ai-and-domain-knowledge/</loc>
+  </url>
+  <url>
     <loc>https://www.becker-consulting.se/en/about/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.becker-consulting.se/en/about/" />
     <xhtml:link rel="alternate" hreflang="sv" href="https://www.becker-consulting.se/om/" />
+  </url>
+  <url>
+    <loc>https://www.becker-consulting.se/en/blog/</loc>
   </url>
   <url>
     <loc>https://www.becker-consulting.se/en/</loc>
