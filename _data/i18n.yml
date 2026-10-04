@@ -11,6 +11,8 @@ sv:
   about_url: /om/
   cv_url: /cv/
   privacy_url: /integritet/
+  # The blog is in English only; the Swedish menu links to it too.
+  blog_url: /en/blog/
   home_title: Becker Consulting · Senior .NET-konsult i Stockholm
   tagline: Rätt mjukvara, rätt byggd.
   description: Senior .NET-konsult och lösningsarkitekt i Lidingö, Stockholm. Backendutveckling, systemintegration och arkitektur i C# och .NET.
@@ -31,6 +33,7 @@ sv:
     projects: Projekt
     about: Om
     cv: CV
+    blog: Blogg
     contact: Kontakt
 en:
   html_lang: en-AU
@@ -43,6 +46,7 @@ en:
   about_url: /en/about/
   cv_url: /en/cv/
   privacy_url: /en/privacy/
+  blog_url: /en/blog/
   home_title: Becker Consulting · Senior .NET consultant, Stockholm
   tagline: Building the right software right.
   description: Senior .NET consultant and solutions architect in Lidingö, Stockholm. Backend development, system integration and architecture in C# and .NET.
@@ -63,4 +67,5 @@ en:
     projects: Projects
     about: About
     cv: CV
+    blog: Blog
     contact: Contact

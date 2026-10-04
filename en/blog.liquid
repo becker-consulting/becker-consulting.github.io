@@ -1,0 +1,22 @@
+---
+layout: page.liquid
+lang: en
+permalink: /en/blog/
+title: Blog
+lead: Notes on .NET, architecture and the things I build off the clock, including the parts that went sideways.
+description: Henrik Becker on .NET, software architecture, AI tools and side projects.
+---
+{%- comment -%} The blog index. English only, so no translationKey; the Swedish menu links here too. {%- endcomment -%}
+<ul class="post-list">
+  {%- for post in collections.blog %}
+  {%- assign post_date = post.date | date: "%Y-%m-%d" %}
+  <li>
+    <time datetime="{{ post_date }}">{{ post_date }}</time>
+    <div>
+      <h2><a href="{{ post.url }}">{{ post.data.title }}</a></h2>
+      {% if post.data.description %}<p>{{ post.data.description }}</p>{% endif %}
+    </div>
+  </li>
+  {%- endfor %}
+</ul>
+<p class="post-list__feed"><a href="/en/blog/feed.xml">Atom feed</a></p>
