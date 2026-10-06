@@ -28,6 +28,8 @@ sv:
   org_nr: Org.nr
   registered: Säte i Lidingö
   privacy: Integritetspolicy
+  chat_placeholder: Fråga min CV-bot vad som helst...
+  chat_error: Min hjärna svarar inte just nu. Försök igen om en liten stund.
   nav:
     services: Tjänster
     projects: Projekt
@@ -61,6 +63,8 @@ en:
   on_this_page: On this page
   org_nr: Org. nr
   registered: Registered in Lidingö, Sweden
+  chat_placeholder: Ask my CV bot anything...
+  chat_error: My brain isn't answering right now. Please try again in a moment.
   privacy: Privacy policy
   nav:
     services: Services
