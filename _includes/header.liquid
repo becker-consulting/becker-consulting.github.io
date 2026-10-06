@@ -19,6 +19,10 @@
     <nav class="nav" aria-label="{{ t.main_nav }}">
       {{ nav_links }}
     </nav>
+    {%- comment %} The CV chat from henrikbecker.net (web component, loaded in base.liquid). {%- endcomment %}
+    <div class="site-header__chat">
+      <cv-chat collection="henrik" answer-position="below" placeholder="{{ t.chat_placeholder | escape }}" error="{{ t.chat_error | escape }}"></cv-chat>
+    </div>
     <details class="nav-mobile">
       <summary aria-label="{{ t.menu }}">
         {% include "icon.liquid", name: "menu" %}

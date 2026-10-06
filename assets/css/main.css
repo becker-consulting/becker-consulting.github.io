@@ -196,3 +196,26 @@ a.band__action:hover { color: var(--band-ink); border-color: var(--band-ink); }
 /* Most logos are dark on transparent; in dark mode they're lifted to light grey. */
 @media (prefers-color-scheme: dark) { :root:not(.light) .client-logos img { filter: grayscale(100%) brightness(6) contrast(1.1); } }
 :root.dark .client-logos img { filter: grayscale(100%) brightness(6) contrast(1.1); }
+
+/* ---- CV chat in the header (web component from henrikbecker.net) ------- */
+cv-chat {
+  --chat-bg: var(--card);
+  --chat-text: var(--ink);
+  --chat-accent: var(--accent);
+  --chat-radius: 10px;
+  --chat-shadow: 0 12px 32px rgba(23, 21, 23, 0.18);
+  font-family: var(--font-sans);
+}
+.site-header__chat { flex: 0 1 280px; min-width: 200px; }
+/* Above the chat's answer panel */
+.nav-mobile__panel { z-index: 50; }
+/* With seven menu links there's no room for the chat beside them on narrower
+   screens; it gets its own row under the menu instead. */
+@media (max-width: 1280px) {
+  .site-header__inner { flex-wrap: wrap; row-gap: 12px; }
+  .site-header__chat { order: 3; flex: 1 0 100%; }
+}
+@media (max-width: 900px) {
+  .nav-mobile { order: 2; margin-left: auto; }
+}
+@media print { cv-chat, .site-header__chat { display: none; } }
