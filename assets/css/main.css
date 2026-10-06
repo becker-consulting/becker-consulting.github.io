@@ -186,3 +186,13 @@ a.band__action:hover { color: var(--band-ink); border-color: var(--band-ink); }
   .post-list li { grid-template-columns: 1fr; }
   .post-list time { padding-top: 0; }
 }
+
+/* ---- Client logos (from henrikbecker.net) ------------------------------ */
+.client-logos { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 40px; align-items: center; margin-top: 24px; padding: 0; list-style: none; }
+.client-logos li { display: flex; align-items: center; justify-content: center; }
+.client-logos a { display: inline-flex; border: none; }
+.client-logos img { width: auto; max-height: 32px; max-width: 120px; object-fit: contain; filter: grayscale(100%); opacity: 0.55; transition: opacity 0.15s ease; }
+.client-logos a:hover img, .client-logos a:focus-visible img { opacity: 0.85; }
+/* Most logos are dark on transparent; in dark mode they're lifted to light grey. */
+@media (prefers-color-scheme: dark) { :root:not(.light) .client-logos img { filter: grayscale(100%) brightness(6) contrast(1.1); } }
+:root.dark .client-logos img { filter: grayscale(100%) brightness(6) contrast(1.1); }
