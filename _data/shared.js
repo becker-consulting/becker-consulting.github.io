@@ -6,6 +6,10 @@
 // SHARED_DATA overrides the source of the English file: a URL, or a local path such as
 // ../handiman.github.io/_site/assets/site-data.json when working on both sites.
 // The Swedish file is found next to it, under /sv/.
+//
+// The short CV is shared as finished HTML: short-cv.html next to each site-data.json
+// (rendered by henrikbecker.net from the same include as its own CV page) ends up
+// as shared[lang].cvHtml.
 import fs from "node:fs";
 import Fetch from "@11ty/eleventy-fetch";
 
@@ -15,6 +19,15 @@ const DEFAULT_SOURCE = "https://henrikbecker.pages.dev/assets/site-data.json";
 const SUPPORTED_VERSION = 1;
 
 const swedish = (source) => source.replace(/([\\/])assets([\\/])site-data\.json$/, "$1sv$1assets$2site-data.json");
+
+const cvFragment = (source) => source.replace(/site-data\.json$/, "short-cv.html");
+
+const fetchOptions = { headers: { "user-agent": "becker-consulting.se build (+https://www.becker-consulting.se)" } };
+
+const loadText = async (source) =>
+  /^https?:\/\//.test(source)
+    ? await Fetch(source, { duration: process.env.CI ? "0s" : "1h", type: "text", fetchOptions })
+    : fs.readFileSync(source, "utf8");
 
 const load = async (source) => {
   const data = /^https?:\/\//.test(source)
@@ -33,6 +46,11 @@ const load = async (source) => {
 
 export default async function () {
   const source = process.env.SHARED_DATA || DEFAULT_SOURCE;
-  const [en, sv] = await Promise.all([load(source), load(swedish(source))]);
-  return { en, sv };
+  const [en, sv, enCv, svCv] = await Promise.all([
+    load(source),
+    load(swedish(source)),
+    loadText(cvFragment(source)),
+    loadText(cvFragment(swedish(source))),
+  ]);
+  return { en: { ...en, cvHtml: enCv }, sv: { ...sv, cvHtml: svCv } };
 }
