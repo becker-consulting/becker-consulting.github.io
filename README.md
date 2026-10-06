@@ -19,7 +19,8 @@ Favicons (`favicon.ico`, `apple-touch-icon.png` and `assets/img/favicon*.png`) a
 | `_data/site.yml` | Company details, contact email, org. number, links |
 | `_data/i18n.yml` | Everything that differs between Swedish and English: nav, footer, default title and description, page URLs |
 | `_data/shared.js` | Shared content from henrikbecker.net (services, About, CV, projects), in both languages |
-| `_data/cv.js`, `_data/projects.js` | The short CV and the side projects, mapped from the shared content |
+| `_data/projects.js` | The side projects, mapped from the shared content |
+| `_layouts/cv.liquid` | Shows the short CV, rendered by henrikbecker.net as an HTML fragment (`shared[lang].cvHtml`) |
 | `_layouts/` | `base` (header/footer), `page` (content pages), `home`, `about`, `cv` |
 | `index.liquid`, `om.liquid`, `cv.liquid`, `integritet.liquid` | Swedish pages (the default language) |
 | `en/` | English pages |

@@ -333,3 +333,82 @@ a:hover { color: var(--ink); }
 }
 .prose pre code { font-family: inherit; }
 
+/* ---- Short CV ------------------------------------------------------------
+   The short CV is rendered by henrikbecker.net (_includes/short-cv.liquid) and
+   shown on both sites: on its own CV page there, and as an HTML fragment on
+   becker-consulting.se. A few rules below (quotes, list bullets, the "see the
+   full CV" link) give elements the look henrikbecker.net's base styles do, so
+   the CV looks the same on both sites. */
+
+.cv-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px 64px; flex-wrap: wrap; padding-block: 72px 16px; }
+.cv-head__id { display: flex; gap: 36px; align-items: center; }
+.cv-head__photo { width: 132px; height: 132px; flex-shrink: 0; border-radius: 16px; overflow: hidden; background: var(--surface); }
+.cv-head__photo img { width: 100%; height: 100%; object-fit: cover; }
+.cv-head__text { display: flex; flex-direction: column; gap: 10px; }
+.cv-head__text p { margin: 0; }
+.cv-head h1 { font-size: clamp(40px, 4.2vw, 60px); line-height: 1; letter-spacing: -0.035em; }
+.cv-head__title { font-size: 20px; color: var(--ink); line-height: 1.4; }
+.cv-head__actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.cv-short { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 96px; padding-top: 56px; }
+.cv-summary { margin-top: 32px; font-size: clamp(19px, 1.6vw, 22px); line-height: 1.6; color: var(--ink); max-width: 780px; }
+.cv-short__main > h2.label { margin: 0 0 8px; }
+
+.cv-entry { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 32px; padding: 28px 0; border-top: 1px solid var(--line); }
+.cv-entry:last-of-type { border-bottom: 1px solid var(--line); }
+.cv-entry__years { margin: 0; padding-top: 5px; font-family: var(--font-mono); font-size: 13px; }
+.cv-entry__body { display: flex; flex-direction: column; gap: 8px; }
+.cv-entry__head { display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; margin: 0; font-size: inherit; font-weight: 400; }
+.cv-entry__name { font-size: 21px; font-weight: 600; letter-spacing: -0.015em; color: var(--ink); border: none; }
+.cv-entry__name:hover { color: var(--accent); }
+.cv-entry__role { font-size: 15px; color: var(--text); }
+.cv-entry__summary, .cv-entry--earlier p:not(.cv-entry__years) { font-size: 16px; line-height: 1.65; }
+.cv-entry__summary p { margin: 0; }
+.cv-entry--earlier a { border-bottom: 1px solid color-mix(in srgb, currentColor 40%, transparent); }
+.cv-entry--earlier a:hover { border-bottom-color: currentColor; }
+.cv-entry__highlight { margin: 0; position: relative; padding-left: 22px; font-size: 16px; line-height: 1.55; color: var(--text); }
+.cv-entry__highlight::before { content: "→"; position: absolute; left: 0; color: var(--accent); }
+.cv-entry__tech { margin: 0; font-family: var(--font-mono); font-size: 12px; color: var(--accent); }
+
+.cv-quotes { display: flex; flex-direction: column; gap: 48px; margin-top: 64px; }
+.cv-quote { margin: 0; max-width: 780px; }
+.cv-quote blockquote { margin: 0; display: flex; flex-direction: column; gap: 16px; color: var(--ink); font-size: 21px; line-height: 1.5; letter-spacing: -0.01em; }
+.cv-quote blockquote::before { content: ""; width: 36px; height: 28px; background: var(--accent); -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 28'%3E%3Cpath d='M0 28V16C0 7 5 1.5 14 0l1.5 4C10 6 8 9.5 8 14h7v14H0zm20 0V16c0-9 5-14.5 14-16l1.5 4C30 6 28 9.5 28 14h7v14H20z'/%3E%3C/svg%3E") no-repeat; mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 28'%3E%3Cpath d='M0 28V16C0 7 5 1.5 14 0l1.5 4C10 6 8 9.5 8 14h7v14H0zm20 0V16c0-9 5-14.5 14-16l1.5 4C30 6 28 9.5 28 14h7v14H20z'/%3E%3C/svg%3E") no-repeat; }
+.cv-quote blockquote p { margin: 0; }
+.cv-quote footer { font-size: 15px; color: var(--text); letter-spacing: 0; }
+
+.cv-short__aside { display: flex; flex-direction: column; gap: 40px; padding-top: 6px; }
+.cv-short__aside section { display: flex; flex-direction: column; gap: 12px; }
+.cv-short__aside h2.label { margin: 0; }
+.cv-short__aside ul { display: flex; flex-direction: column; gap: 8px; margin: 0; padding: 0; list-style: none; font-size: 16px; color: var(--ink); }
+.cv-short__aside ul li { padding-left: 0; }
+.cv-short__aside ul li::before { display: none; }
+.cv-short__aside ul li + li { margin-top: 0; }
+.cv-short__aside ul li span { color: var(--text); }
+.cv-aside__item { display: flex; flex-direction: column; gap: 2px; }
+.cv-aside__item > :first-child { font-size: 16px; color: var(--ink); }
+.cv-aside__item > a:first-child { border: none; }
+.cv-aside__item > a:first-child:hover { color: var(--accent); }
+.cv-aside__item > span:last-child { font-size: 14px; }
+.cv-aside__row { display: flex; justify-content: space-between; gap: 12px; font-size: 16px; color: var(--ink); border: none; }
+.cv-aside__row span:last-child { font-family: var(--font-mono); font-size: 12px; color: var(--accent); }
+.cv-aside__row:hover span:first-child { color: var(--accent); }
+.cv-aside__formats { padding: 24px; border-radius: 16px; background: var(--surface); }
+.cv-aside__formats div { display: flex; gap: 16px; flex-wrap: wrap; font-size: 15px; }
+.cv-aside__formats a { color: var(--ink); border-bottom: 1px solid var(--line-dashed); }
+.cv-aside__formats a:hover { color: var(--accent); }
+
+@media (max-width: 1100px) {
+  .cv-short { grid-template-columns: 1fr; gap: 64px; }
+}
+@media (max-width: 700px) {
+  .cv-head { padding-block: 40px 8px; }
+  .cv-head__id { gap: 20px; }
+  .cv-head__photo { width: 96px; height: 96px; border-radius: 14px; }
+  .cv-head h1 { font-size: 34px; }
+  .cv-head__title { font-size: 17px; }
+  .cv-short { padding-top: 24px; }
+  .cv-summary { font-size: 19px; }
+  .cv-entry { grid-template-columns: 1fr; gap: 8px; padding: 22px 0; }
+  .cv-entry__years { padding-top: 0; }
+}
