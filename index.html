@@ -60,6 +60,11 @@
   <link rel="preload" href="/assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/assets/css/shared.css">
   <link rel="stylesheet" href="/assets/css/main.css">
+  <link rel="preload" as="style" href="https://cdn.jsdelivr.net/gh/handiman/henrikbecker.net.chat.ui@0.0.28/dist/collection/cv-chat.css" onload="this.onload=null;this.rel='stylesheet'">
+  <script type="module">
+    import { defineCustomElements } from "https://cdn.jsdelivr.net/gh/handiman/henrikbecker.net.chat.ui@0.0.28/dist/esm/loader.js";
+    defineCustomElements();
+  </script>
   <link rel="alternate" type="application/atom+xml" title="Becker Consulting · Blog" href="/en/blog/feed.xml">
 </head>
 <body>
@@ -83,6 +88,9 @@
   <a class="nav-lang" href="/en/" hreflang="en" lang="en-AU">English</a>
 
     </nav>
+    <div class="site-header__chat">
+      <cv-chat collection="henrik" answer-position="below" placeholder="Fråga min CV-bot vad som helst..." error="Min hjärna svarar inte just nu. Försök igen om en liten stund."></cv-chat>
+    </div>
     <details class="nav-mobile">
       <summary aria-label="Meny">
         <svg class="icon" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><path d="M3 7h16M3 15h16"/></svg>
