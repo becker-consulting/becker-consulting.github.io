@@ -44,6 +44,18 @@ layout: base.liquid
     {% endfor %}
   </section>
 
+  {%- comment %} Client logos come from henrikbecker.net (shared[lang].clients); the section is left out until the shared data has them. {%- endcomment %}
+  {%- if shared[lang].clients.size > 0 %}
+  <section class="section clients" id="clients" aria-labelledby="clients-title">
+    <h2 class="label" id="clients-title">{{ clients.label | escape }}</h2>
+    <ul class="client-logos">
+      {%- for client in shared[lang].clients %}
+      <li><a href="{{ client.url }}" title="{{ client.name }}"><img src="{{ client.logo }}" alt="{{ client.name }}" height="32" loading="lazy"></a></li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {%- endif %}
+
   <section class="section" id="projects" aria-labelledby="projects-title">
     <div class="section__head">
       <div>
