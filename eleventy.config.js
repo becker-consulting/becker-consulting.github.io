@@ -33,10 +33,21 @@ export default function (eleventyConfig) {
   eleventyConfig.addGlobalData("favicon_sizes", FAVICON_SIZES);
   eleventyConfig.addGlobalData("build_year", new Date().getFullYear());
 
+  // Removes HTML tags. Repeats until stable so nested fragments like <scr<b>ipt> cannot
+  // reassemble into a tag, and drops any stray angle brackets left over.
+  const stripTags = (value) => {
+    let previous;
+    do {
+      previous = value;
+      value = value.replace(/<[^>]*>/g, "");
+    } while (value !== previous);
+    return value.replace(/[<>]/g, "");
+  };
+
   // Builds the "On this page" list from the rendered <h2 id="…"> headings.
   eleventyConfig.addFilter("toc", (html = "") =>
     [...String(html).matchAll(/<h2[^>]*\sid="([^"]+)"[^>]*>([\s\S]*?)<\/h2>/g)].map(
-      ([, id, text]) => ({ id, text: text.replace(/<[^>]+>/g, "").trim() })
+      ([, id, text]) => ({ id, text: stripTags(text).trim() })
     )
   );
 
